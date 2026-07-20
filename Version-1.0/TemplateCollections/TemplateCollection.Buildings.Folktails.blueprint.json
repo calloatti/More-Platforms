@@ -1,0 +1,11 @@
+﻿{
+  "TemplateCollectionSpec": {
+    "CollectionId": "Buildings.Folktails",
+    "Blueprints#append": [
+      "Buildings/SidePlatforms/HorizontalPlatformEnd1x1.Folktails.blueprint",
+      "Buildings/SidePlatforms/HorizontalPlatformEnd2x1.Folktails.blueprint",
+      "Buildings/SidePlatforms/HorizontalPlatformEnd3x1.Folktails.blueprint",
+      "Buildings/SidePlatforms/HorizontalPlatformEnd4x1.Folktails.blueprint"
+    ]
+  }
+}

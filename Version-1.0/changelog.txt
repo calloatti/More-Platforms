@@ -1,0 +1,6 @@
+3.0.0
+- Ported to Timberborn 1.0
+- Replaced TimberAPI spec system with native blueprint system
+- Replaced TimberAPI prefab system with Configurator + TemplateModule
+- Updated DirectionalConnector to use constructor injection and IBlockService
+- Converted models to timbermesh format

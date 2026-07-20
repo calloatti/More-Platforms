@@ -1,0 +1,11 @@
+﻿{
+  "TemplateCollectionSpec": {
+    "CollectionId": "Buildings.IronTeeth",
+    "Blueprints#append": [
+      "Buildings/SidePlatforms/HorizontalPlatformEnd1x1.IronTeeth.blueprint",
+      "Buildings/SidePlatforms/HorizontalPlatformEnd2x1.IronTeeth.blueprint",
+      "Buildings/SidePlatforms/HorizontalPlatformEnd3x1.IronTeeth.blueprint",
+      "Buildings/SidePlatforms/HorizontalPlatformEnd4x1.IronTeeth.blueprint"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "More Platforms",
+  "Version": "3.0.0",
+  "Id": "Tobbert.MorePlatforms",
+  "MinimumGameVersion": "1.0.0.0",
+  "Description": "Adds side platforms that can be placed on cliffs and levees.",
+  "RequiredMods": [
+    {
+      "Id": "Harmony",
+      "MinVersion": "2.4.1"
+    }
+  ]
+}
