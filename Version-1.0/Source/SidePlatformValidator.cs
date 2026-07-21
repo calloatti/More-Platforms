@@ -1,5 +1,4 @@
 ﻿using Timberborn.BlockSystem;
-using Timberborn.Coordinates;
 using Timberborn.EntitySystem;
 using Timberborn.TerrainSystem;
 using UnityEngine;
@@ -59,14 +58,17 @@ namespace Tobbert.MorePlatforms
       }
 
       // 2. Check if the adjacent block is a valid building in BlockService
-      // We iterate through any objects at the target coordinate to see if they physically occupy the voxel.
+      // A valid attachment target must have structural body (Top, Corners, or Middle).
+      // Excludes paths, thin floors, and air blocks.
       var objectsAt = _blockService.GetObjectsAt(coordinates);
       for (int i = 0; i < objectsAt.Count; i++)
       {
         BlockObject obj = objectsAt[i];
-        if (obj != null && obj.PositionedBlocks != null && obj.PositionedBlocks.TryGetBlock(coordinates, out Block block))
+        if (obj == null || obj.GetComponent<SidePlatform>() != null)
+          continue;
+        if (obj.PositionedBlocks != null && obj.PositionedBlocks.TryGetBlock(coordinates, out Block block))
         {
-          if (block.IsOccupied)
+          if (IsStructuralBlock(block))
           {
             return true;
           }
@@ -88,9 +90,9 @@ namespace Tobbert.MorePlatforms
         if (entity != null && entity.Enabled)
         {
           BlockObject obj = entity.GetComponent<BlockObject>();
-          if (obj != null && obj.Positioned && obj.PositionedBlocks != null && obj.PositionedBlocks.TryGetBlock(coordinates, out Block block))
+          if (obj != null && obj.GetComponent<SidePlatform>() == null && obj.Positioned && obj.PositionedBlocks != null && obj.PositionedBlocks.TryGetBlock(coordinates, out Block block))
           {
-            if (block.IsOccupied)
+            if (IsStructuralBlock(block))
             {
               return true;
             }
@@ -99,6 +101,20 @@ namespace Tobbert.MorePlatforms
       }
 
       return false;
+    }
+
+    private static bool IsStructuralBlock(Block block)
+    {
+      if (!block.IsOccupied)
+        return false;
+
+      if (block.Stackable != BlockStackable.None)
+        return true;
+
+      if ((block.Occupation & BlockOccupations.Floor) != BlockOccupations.None)
+        return false;
+
+      return (block.Occupation & (BlockOccupations.Top | BlockOccupations.Corners | BlockOccupations.Middle)) != BlockOccupations.None;
     }
   }
 }

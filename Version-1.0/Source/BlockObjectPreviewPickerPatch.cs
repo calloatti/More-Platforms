@@ -42,7 +42,7 @@ namespace Tobbert.MorePlatforms
       // Strictly restrict side-building attachment to objects with SidePlatformSpec
       if (_currentSpec != null && _currentSpec.GetSpec<SidePlatformSpec>() != null)
       {
-        var blockService = Traverse.Create(____stackableBlockService).Field("_blockService").GetValue<IBlockService>();
+        var blockService = ____stackableBlockService._blockService;
         if (blockService != null && blockService.AnyObjectAt(coords) && coords.z <= ____levelVisibilityService.MaxVisibleLevel)
         {
           __result = true;

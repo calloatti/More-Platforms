@@ -11,9 +11,10 @@
 - **Original Source Location (READ-ONLY):** `C:\Users\calloatti\source\repos\Mods\MorePlatforms`
 - **New Version Location (WORKING COPY):** `C:\Users\calloatti\source\repos\Mods\More Platforms`
 - **Decompiled Game Source:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-b769e88-sw`
+- **Game Docs (per-assembly MD):** `C:\Users\calloatti\source\repos\timberborn-docs-1.0.13.1-b769e88-sw`
 - **Ripped Game Assets:** `C:\Users\calloatti\source\repos\timberborn-ripped-1.0.13.1-b769e88-sw`
 - **Game Blueprints:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-b769e88-sw\Blueprints`
-- **Blender:** `C:\Users\calloatti\source\repos\Mods\tools\blender-4.2.22-windows-x64\blender.exe`
+- **Blender:** `C:\Users\calloatti\source\repos\Tools\blender-4.2.22-windows-x64\blender.exe`
 
 **IMPORTANT:** The original `Mods\MorePlatforms` folder is the immutable upstream source. Never edit files there.
 **IMPORTANT:** The deployment folder (`Documents\Timberborn\Mods\More Platforms\Version-1.0\`) is managed entirely by the PostBuild step in `CommonModSettings.props`. Never create, delete, or modify any file inside it — not directly, not via scripts, not via tools. If the deploy is stale, rebuild the `.csproj` and let the PostBuild handle it.
@@ -29,8 +30,16 @@ Version-1.0/
 ├── manifest.json
 ├── export_timbermesh.py       ← Blender batch export script
 ├── Source/
-│   ├── Plugin.cs              ← IModStarter entry point + Harmony patches
-│   ├── Configurator.cs        ← TemplateModule.AddDecorator registrations
+│   ├── ModStarter.cs              ← IModStarter entry point + Harmony patches
+│   ├── Configurator.cs            ← TemplateModule.AddDecorator registrations
+│   ├── SidePlatform.cs            ← marker BaseComponent for side platforms
+│   ├── SidePlatformSpec.cs        ← empty ComponentSpec record
+│   ├── SidePlatformValidator.cs   ← IBlockObjectValidator for placement validation
+│   ├── SidePlatformSupportBlocker.cs ← IBlockObjectDeletionBlocker for demolition
+│   ├── TerrainPhysicsPostLoaderPatch.cs ← Harmony postfix on ValidateBlockObjects
+│   ├── BlockObjectPatch.cs        ← Harmony on BlockObject.IsAlmostValid
+│   ├── BlockObjectPreviewPickerPatch.cs ← Harmony on BlockObjectPreviewPicker
+│   ├── DeconstructionToolPatch.cs ← Harmony postfix on AddNextBlockObjectToValidate
 │   ├── DirectionalConnector.cs
 │   ├── DirectionalConnectorSpec.cs
 │   ├── OverhangingBuilding.cs
@@ -97,15 +106,17 @@ MorePlatforms\
 - **Decompiled game source:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-*`)
 - **Ripped assets:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1\` subfolders: `EditorDll`, `EditorUI`, `Localizations`, `Shaders`, `UI`, `Blueprints`
 - **Game Blueprints:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-b769e88-sw\Blueprints`
-- **Blender:** `C:\Users\calloatti\source\repos\Mods\tools\blender-4.2.22-windows-x64\blender.exe`
-- **Timbermesh plugin:** `C:\Users\calloatti\source\repos\Mods\tools\timbermesh\timbermesh_blender_plugin\`
-- **Timbermesh tools:** `C:\Users\calloatti\source\repos\Mods\tools\timbermesh\timbermesh.ps1` (decoder), `patch_banner.py`, `bags.py`
+- **Blender:** `C:\Users\calloatti\source\repos\Tools\blender-4.2.22-windows-x64\blender.exe`
+- **Timbermesh plugin:** `C:\Users\calloatti\source\repos\Tools\timbermesh\timbermesh_blender_plugin\`
+- **Timbermesh tools:** `C:\Users\calloatti\source\repos\Tools\timbermesh\timbermesh.ps1` (decoder), `patch_banner.py`, `bags.py`
 
 ## Current State
 
 - **Build:** Succeeds (0 errors, 0 warnings). Csproj has `<Publicize Remove="Timberborn.BlueprintSystem" />` to prevent record inheritance issues.
 - **Runtime crash FIXED:** `Material BaseWood_Brown_Folktails.001 not found in repository` was caused by .blend materials using underscore naming (`BaseWood_Brown_Folktails`) with Blender dedup suffixes (`.001`, `.002`, etc.) instead of game's dot notation (`BaseWood_Brown.Folktails`)
 - **Fix applied:** `.scratch/fix_materials.py` renamed/merged all materials to correct game names. `export_timbermesh.py` updated to read from `Models/`. All .timbermesh re-exported and deployed.
+- **Load-time validation FIXED:** Side platforms attached to other buildings (not terrain) were being deleted on game load by `TerrainPhysicsPostLoader.RemoveBlockObjects()`. The BFS flood fill only propagates horizontally through `UnfinishedGround` blocks, not regular `BlockObject` stackable. Fixed via Harmony postfix `TerrainPhysicsPostLoaderPatch.cs` on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Required publicizing `Timberborn.TerrainPhysics`.
+- **ConstructionSite1x1.5 model REBUILT:** Imported vanilla `ConstructionBase1x1.Model.timbermesh` from ripped assets via `timbermesh_plugin_2026-07-15.py`, deleted Dirt mesh (kept BeaverCarryingModels wood frame), rotated -90° around Y (horizontal → vertical in YZ plane, faces -X), origin at Blender location `(0, 0, 1)`. Game-space bounds: X[0, 0.322] Y[0, 1] Z[0, 1] — narrow scaffold at cliff-facing edge.
 
 ## Active C# Source Code — Full Details
 
@@ -150,6 +161,59 @@ MorePlatforms\
   - `FindAllBodyParts(Transform parent, string bodyPartName)` — collects all matching children
 - **Bug in FindAllBodyParts:** It calls `FindBodyPart` (singular) recursively instead of calling itself. Only the top-level direct children are checked; deeper nesting calls the wrong method. Bug inherited from original, fix if reactivated.
 - **1.0 changes:** None. Standard Unity `Transform` API.
+
+### `ModStarter.cs`
+- **Namespace:** `Tobbert.MorePlatforms`
+- **Implements:** `IModStarter`
+- **Purpose:** Entry point. Creates Harmony instance `"tobbert.moreplatforms"` and calls `PatchAll()`.
+
+### `Configurator.cs`
+- **Namespace:** `Tobbert.MorePlatforms`
+- **Base class:** `Configurator` (Bindito)
+- **Registers:**
+  - `SidePlatform` as transient
+  - `SidePlatformSupportBlocker` as transient
+  - `SidePlatformValidator` as singleton `IBlockObjectValidator`
+  - `TemplateModule` provider that decorates `SidePlatformSpec` → `SidePlatform`, and `BlockObject` → `SidePlatformSupportBlocker`
+
+### `SidePlatform.cs`
+- **Base class:** `BaseComponent`
+- **Purpose:** Empty marker component identifying side platform entities. Used by validation, demolition blocker, and Harmony patches to detect side platforms.
+
+### `SidePlatformSpec.cs`
+- **Record:** `SidePlatformSpec : ComponentSpec`
+- **Purpose:** Empty marker spec. Blueprint JSON has `"SidePlatformSpec": {}` key. Used by `TemplateModule.AddDecorator` to attach `SidePlatform` component.
+
+### `SidePlatformValidator.cs`
+- **Implements:** `IBlockObjectValidator`
+- **Purpose:** Validates side platforms at placement AND load time. Checks that the attachment target at local `(-1, 0, 0)` (transformed to world via `blockObject.TransformCoordinates()`) is either solid terrain or a structural block object.
+- **Validation logic:** Uses `IsStructuralBlock()` which requires the block to be occupied but excludes `Floor` occupations (paths, thin platforms). Accepts `Stackable` blocks or blocks with `Top`, `Corners`, or `Middle` occupations. Self-filters (`GetComponent<SidePlatform>() == null`) so side platforms can't validate against each other.
+- **Load-time fallback:** If `isPreview` is false, also scans `EntityRegistry.Entities` for instantiated-but-not-yet-in-BlockService block objects.
+
+### `SidePlatformSupportBlocker.cs`
+- **Base class:** `BaseComponent`
+- **Implements:** `IBlockObjectDeletionBlocker`
+- **Purpose:** Prevents demolition of walls/buildings that have side platforms attached. Scans all 4 horizontal neighbors of each block occupied by the target building; if a neighbor block belongs to a `SidePlatform` whose attachment point matches the target's block, deletion is blocked.
+- **Attached to:** ALL `BlockObject` instances via `builder.AddDecorator<BlockObject, SidePlatformSupportBlocker>()`.
+- **Localization key:** `"Tobbert.DeletionBlocker.SidePlatformAttached"`
+
+### `BlockObjectPreviewPickerPatch.cs`
+- **Harmony patches on `BlockObjectPreviewPicker`:**
+  - `CenteredPreviewCoordinates` prefix/postfix to capture the current `PlaceableBlockObjectSpec`
+  - `IsTerrainOrUnfinishedTerrain` postfix to force `true` for cells occupied by any block object when the current building has `SidePlatformSpec` — allows previewing side platforms on existing buildings
+- **Uses direct field access** on publicized `StackableBlockService._blockService` (was `Traverse` before publicization).
+
+### `BlockObjectPatch.cs`
+- **Harmony postfix on `BlockObject.IsAlmostValid`** — forces `true` for objects with `SidePlatform` component so the preview renders as the red "unbuildable" ghost instead of being dropped entirely.
+
+### `TerrainPhysicsPostLoaderPatch.cs`
+- **Harmony postfix on `TerrainPhysicsPostLoader.ValidateBlockObjects(Vector3Int)`** — after the BFS validates each coordinate, scans the block objects at that coordinate. For each validated building, checks its 4 horizontal neighbors for `SidePlatform` block objects NOT yet in `_validBlockObjects`. If a platform's attachment coordinate `(-1, 0, 0)` transformed to world matches a structural block on the validated building, the platform is added to `_validBlockObjects` and its occupied cells above are enqueued for continued BFS propagation.
+- **Requires publicizing `Timberborn.TerrainPhysics`** (in csproj) to access `_validBlockObjects`, `_blockService`, `_mapIndexService`, `_visited`, and `Enqueue`.
+
+### `DeconstructionToolPatch.cs`
+- **Single postfix on `TerrainAndBlockObjectsToDeleteFinder.AddNextBlockObjectToValidate(BlockObject)`** — when a building is queued for deletion validation, scans all occupied blocks of that building and checks each of the 4 horizontal neighbors. If a neighbor is a `SidePlatform` whose attachment coordinate matches one of the building's blocks, enqueues the platform for deletion and recursively calls `AddNextBlockObjectToValidate` on it to cascade any further attachments.
+- **Cascade pattern:** `MarkBlockObjectBlocksForDeletion(obj)` + `AddNextBlockObjectToValidate(obj)` ensures recursive discovery of chained platforms.
+- **Requires publicizing `Timberborn.BlockObjectPickingSystem`** (in csproj) for access to `_blockService` and `_blockObjectsToCheck` on `TerrainAndBlockObjectsToDeleteFinder`.
 
 ## Dead (Commented-Out) Source Code — History Only
 
@@ -321,9 +385,7 @@ Critical: Use `Name.FactionId` dot notation (e.g., `BaseWood_Brown.Folktails`), 
 | `BaseWood_Brown_Folktails` / `.001`/`.002`/`.003`/`.004`/`.006` | `BaseWood_Brown.Folktails` | All platform blends |
 | `BaseMetal_IronTeeth.001` / `.004` | `BaseMetal.IronTeeth` | End3x1, End4x1 |
 | `BaseWood_DarkBrown_IronTeeth.001` / `.002` | `BaseWood_DarkBrown.IronTeeth` | End3x1, End4x1 |
-| `BaseWood_Brown` (ConstructionSite) | `BaseWood_Brown.Folktails` | ConstructionSite1x1.5 |
-| `BaseWood_White` (ConstructionSite) | `BaseWood_White.Folktails` | ConstructionSite1x1.5 |
-| `Dirt` | `Dirt` (no change) | ConstructionSite1x1.5 |
+| `BeaverCarryingModels` | `BeaverCarryingModels` (no change) | ConstructionSite1x1.5 |
 | `Dots Stroke` | Unused / remove | ConstructionSite1x1.5 |
 
 ## Export Process
@@ -351,7 +413,7 @@ for fname in os.listdir(input_dir):
             timbermesh_exporter.Exporter.export_collection(collection, out_path, settings)
 ```
 
-**Existing local tools** at `C:\Users\calloatti\source\repos\Mods\tools\timbermesh\`:
+**Existing local tools** at `C:\Users\calloatti\source\repos\Tools\timbermesh\`:
 - `timbermesh.ps1` — diagnostic decoder that decompresses and prints `.timbermesh` structure
 - `timbermesh_plugin_2026-07-15.py` — custom importer plugin (reads `.timbermesh` back into Blender)
 - `patch_banner.py` — binary-level vertex patcher (modifies positions in `.timbermesh` files directly)
@@ -505,7 +567,7 @@ Use Blender → Timbermesh `.bytes` via the official timbermesh Blender plugin. 
 
 ### Quick Restart Workflow
 
-`C:\Users\calloatti\source\repos\Mods\tools\timberborn_restart_and_continue.ps1`
+`C:\Users\calloatti\source\repos\Tools\timberborn_restart_and_continue.ps1`
 
 Finds the newest `.timber` save, closes Timberborn gracefully, then relaunches via Steam with `-skipModManager -settlementName <name> -saveName <name>` to auto-load that save. Run this after rebuilding the DLL to test changes quickly without navigating menus.
 
@@ -524,6 +586,12 @@ Finds the newest `.timber` save, closes Timberborn gracefully, then relaunches v
 11. **HorizontalPlatformEnd origin offset:** The correct origin translation for End platform files (2x1–5x1) relative to the original source `.blend` files is **(1, 0, 1)** — 1 block right in X, 1 block up in Z. Only modify these 4 files; the 1x1 is already correct. Always start from fresh copies of the original source, apply material fixes first, then move the origin (location only, no vertex counter-translation). Working script: `.scratch/fix_location_only.py`.
 12. **Timbermesh export order:** Always apply material fixes to ALL `.blend` files before running `export_timbermesh.py`. Exporting all stems from unfixed blends will produce `.timbermesh` files with wrong material names (underscore instead of dot notation), which crash at runtime with "not found in repository" errors.
 13. **`export_timbermesh.py` caveat:** The script exports ALL collections in a blend to the same output path per stem+faction — if a blend has multiple collections, the last one overwrites the rest. Each blend should have exactly one collection for this to work correctly. When only specific files were modified, run a targeted export (see `.scratch/export_end_only.py`) instead of the full export to avoid overwriting working timbermeshes.
+14. **TerrainPhysicsPostLoader flood fill limitation:** The BFS only propagates horizontally through `UnfinishedGround` blocks and terrain cells. Regular `BlockObject` stackable blocks only propagate **upward**, never sideways. This means side platforms attached to buildings (not terrain) are never reached by the flood fill and get deleted on load. Fix: Harmony postfix on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Requires `Timberborn.TerrainPhysics` publicized.
+15. **ConstructionSite1x1.5 rebuild process:** Import vanilla `ConstructionBase1x1.Model.timbermesh` via `timbermesh_plugin_2026-07-15.py` (which applies Unity→Blender coordinate transform). Delete Dirt mesh, keep `BeaverCarryingModels` wood frame. Rotate -90° around Y (horizontal→vertical in YZ plane, faces -X). Set origin via `obj.location = (0, 0, 1)`. Use `frame.data.transform(rot)` for rotation + `frame.location` for positioning — never counter-translate vertices. The timbermesh exporter bakes `matrix_world`.
+16. **Blender ↔ Game coordinate mapping:** The import plugin converts Unity→Blender via `(bx, by, bz) = (-ux, -uz, uy)`. The timbermesh exporter does the reverse: `(ux, uy, uz) = (-bx, bz, -by)`. To position a model in game-space `[tx, ty, tz] + local`, compute the required Blender location by solving the export transform.
+17. **ConstructionSite1x1.5 final specs:** Material `BeaverCarryingModels` only (no Dirt). Game-space bounds: X[0, 0.322] Y[-0.022, 1.022] Z[-0.022, 1.022] — narrow scaffold at left/cliff-facing edge of the block. Faction-independent; all blueprints reference `ConstructionSite1x1.5.Model` without faction suffix.
+18. **Publicizing `Timberborn.TerrainPhysics`, `Timberborn.BlockObjectPickingSystem`:** Required to access private fields of `TerrainPhysicsPostLoader` and types used by `DeconstructionToolPatch`. Both are in the csproj's per-project `<Publicize>` list — NOT in `CommonModSettings.props` (which is shared across mods).
+19. **Deconstruction tool cascade:** The `TerrainAndBlockObjectsToDeleteFinder.AddNextBlockObjectToValidate` method is the single hook point for both preview highlighting and actual deletion. Patched via Harmony postfix: when a building is queued for deletion, it scans all 4 horizontal neighbors of every occupied block; any `SidePlatform` whose attachment coordinate matches is enqueued for deletion and recursed into for chained platforms. This approach works because the base `TerrainAndBlockObjectsToDeleteFinder` is used by both the preview (red highlight) and the actual deletion pass.
 
 ## Open Decisions
 
@@ -566,7 +634,7 @@ All 14 locale files have identical keys with translated text. Keep all 14.
 
 ## Verification Checklist
 
-- [ ] Build succeeds with 0 errors, 0 warnings
+- [x] Build succeeds with 0 errors, 0 warnings
 - [ ] Mod loads without TimberAPI dependency
 - [ ] Tool groups appear in the bottom bar
 - [ ] Building prefabs are placeable

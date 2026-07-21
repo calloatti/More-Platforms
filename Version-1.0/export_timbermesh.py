@@ -2,8 +2,8 @@ import bpy
 import os
 import sys
 
-sys.path.append(r"C:\Users\calloatti\source\repos\Mods\tools\timbermesh")
-sys.path.append(r"C:\Users\calloatti\source\repos\Mods\tools\timbermesh\timbermesh_blender_plugin")
+sys.path.append(r"C:\Users\calloatti\source\repos\Tools\timbermesh")
+sys.path.append(r"C:\Users\calloatti\source\repos\Tools\timbermesh\timbermesh_blender_plugin")
 from timbermesh_blender_plugin import timbermesh_exporter
 
 BLEND_DIR = r"C:\Users\calloatti\source\repos\Mods\More Platforms\Version-1.0\Models"

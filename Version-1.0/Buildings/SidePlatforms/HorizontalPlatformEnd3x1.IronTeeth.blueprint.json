@@ -1,6 +1,6 @@
-﻿{
+{
   "BuildingSpec": {
-    "SelectionSoundName": "Pile",
+    "SelectionSoundName": "Default",
     "LoopingSoundName": "",
     "BuildingCost": [
       {
@@ -23,7 +23,7 @@
   },
   "SidePlatformSpec": {},
   "BlockObjectNavMeshSettingsSpec": {
-    "NoAutoWalls": false,
+    "NoAutoWalls": true,
     "GenerateFloorsOnStackable": true,
     "EdgeGroups": [],
     "UnblockedCoordinates": [],

@@ -10,8 +10,6 @@ namespace Tobbert.MorePlatforms
     protected override void Configure()
     {
       Bind<SidePlatform>().AsTransient();
-
-      // MISSING LINE ADDED HERE:
       Bind<SidePlatformSupportBlocker>().AsTransient();
 
       MultiBind<IBlockObjectValidator>().To<SidePlatformValidator>().AsSingleton();

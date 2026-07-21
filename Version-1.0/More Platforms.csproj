@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <Publicize Remove="Timberborn.BlueprintSystem" />
+    <Publicize Include="Timberborn.BlockObjectPickingSystem" />
+    <Publicize Include="Timberborn.DeconstructionSystemUI" />
+    <Publicize Include="Timberborn.TerrainPhysics" />
   </ItemGroup>
 
 </Project>
