@@ -1,4 +1,4 @@
-{
+﻿{
   "BuildingSpec": {
     "SelectionSoundName": "Default",
     "LoopingSoundName": "",
@@ -21,17 +21,13 @@
     "ConstructionModeModel": "Finished",
     "UndergroundModelDepth": 0
   },
-  "SidePlatformSpec": {
-  },
+  "SidePlatformSpec": {},
   "BlockObjectNavMeshSettingsSpec": {
     "NoAutoWalls": true,
     "GenerateFloorsOnStackable": true,
-    "EdgeGroups": [
-    ],
-    "UnblockedCoordinates": [
-    ],
-    "BlockedEdges": [
-    ]
+    "EdgeGroups": [],
+    "UnblockedCoordinates": [],
+    "BlockedEdges": []
   },
   "BlockObjectSpec": {
     "Size": {
@@ -110,8 +106,7 @@
   },
   "TemplateSpec": {
     "TemplateName": "HorizontalPlatformEnd4x1.IronTeeth",
-    "BackwardCompatibleTemplateNames": [
-    ],
+    "BackwardCompatibleTemplateNames": [],
     "RequiredFeatureToggle": "",
     "DisablingFeatureToggle": ""
   },
@@ -135,10 +130,8 @@
             }
           }
         ],
-        "SphereColliders": [
-        ],
-        "CapsuleColliders": [
-        ]
+        "SphereColliders": [],
+        "CapsuleColliders": []
       }
     },
     "#Unfinished": {
@@ -162,10 +155,8 @@
                 }
               }
             ],
-            "SphereColliders": [
-            ],
-            "CapsuleColliders": [
-            ]
+            "SphereColliders": [],
+            "CapsuleColliders": []
           }
         },
         "ConstructionStage0": {
@@ -187,10 +178,8 @@
                 }
               }
             ],
-            "SphereColliders": [
-            ],
-            "CapsuleColliders": [
-            ]
+            "SphereColliders": [],
+            "CapsuleColliders": []
           }
         }
       }

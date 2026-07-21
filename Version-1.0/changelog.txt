@@ -1,6 +1,5 @@
-3.0.0
-- Ported to Timberborn 1.0
+Game Version: 1.0.0.0 - Mod Version: 3.0.0
+- Ported to Timberborn 1.0/1.1
 - Replaced TimberAPI spec system with native blueprint system
 - Replaced TimberAPI prefab system with Configurator + TemplateModule
-- Updated DirectionalConnector to use constructor injection and IBlockService
-- Converted models to timbermesh format
+--------------------------------------------------------------------------------
