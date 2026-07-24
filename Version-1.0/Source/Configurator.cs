@@ -13,6 +13,7 @@ namespace Tobbert.MorePlatforms
       Bind<SidePlatformSupportBlocker>().AsTransient();
 
       MultiBind<IBlockObjectValidator>().To<SidePlatformValidator>().AsSingleton();
+      MultiBind<IBlockObjectValidator>().To<SidePlatformDynamiteBlocker>().AsSingleton();
 
       MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
     }

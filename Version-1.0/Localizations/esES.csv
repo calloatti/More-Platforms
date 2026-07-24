@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Plataforma Triplemente Reforzada",
 Tobbert.TripleReinforcedPlatform.Description,"Una plataforma que se puede usar en combinación con las Plataformas Laterales. Sirve como una opción más estética que los malecones.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"¡Apila, apila, apílalo hasta la cima!","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Plataformas Reforzadas","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Plataformas Laterales","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Más Plataformas","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"No se puede colocar dinamita aquí: hay una plataforma lateral unida a este terreno.","-"

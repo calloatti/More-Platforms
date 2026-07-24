@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Üçlü Güçlendirilmiş Platform
 Tobbert.TripleReinforcedPlatform.Description,"Yan Platformlarla kombinasyon halinde kullanılabilen bir platform. Setlerden daha iyi görünen bir seçenek olarak hizmet eder.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"İstifle, istifle, tepeye kadar istifle!","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Güçlendirilmiş Platformlar","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Yan Platformlar","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Daha Fazla Platform","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"Buraya dinamit yerleştirilemez: bu araziye bir yan platform bağlı.","-"

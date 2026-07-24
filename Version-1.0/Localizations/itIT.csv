@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Piattaforma Triplicemente Rinforza
 Tobbert.TripleReinforcedPlatform.Description,"Una piattaforma che può essere utilizzata in combinazione con le Piattaforme Laterali. Serve come opzione più estetica rispetto agli argini.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"Impila, impila, impilala fino in cima!","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Piattaforme Rinforzate","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Piattaforme Laterali","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Più Piattaforme","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"Impossibile posizionare la dinamite qui: una piattaforma laterale è attaccata a questo terreno.","-"

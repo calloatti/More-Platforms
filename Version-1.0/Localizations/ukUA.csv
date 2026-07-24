@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Потрійна Посилена 
 Tobbert.TripleReinforcedPlatform.Description,"Платформа, яку можна використовувати в поєднанні з Бічними Платформами. Слугує більш естетичним варіантом, ніж дамби.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"Складайте, складайте, складайте до самого верху!","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Посилені Платформи","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Бічні Платформи","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Більше Платформ","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"Не можна розмістити динаміт тут: до цієї місцевості прикріплена бічна платформа.","-"

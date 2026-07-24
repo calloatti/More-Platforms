@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Тройная Усиленная 
 Tobbert.TripleReinforcedPlatform.Description,"Платформа, которую можно использовать в сочетании с Боковыми Платформами. Служит более эстетичной альтернативой дамбам.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"Складывайте, складывайте, складывайте до самого верха!","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Усиленные Платформы","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Боковые Платформы","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Больше Платформ","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"Нельзя разместить динамит здесь: к этому участку прикреплена боковая платформа.","-"

@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 *.blend
+*.blend1
 
 .scratch/
 

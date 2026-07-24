@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Plateforme Triplement Renforcée",
 Tobbert.TripleReinforcedPlatform.Description,"Une plateforme qui peut être utilisée en combinaison avec les Plateformes Latérales. Sert d'option plus esthétique que les digues.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"Empilez, empilez, empilez-la jusqu'en haut !","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Plateformes Renforcées","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Plateformes Latérales","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Plus de Plateformes","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"Impossible de placer de la dynamite ici : une plateforme latérale est attachée à ce terrain.","-"

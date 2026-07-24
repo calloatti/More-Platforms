@@ -1,3 +1,5 @@
+Include ..\AGENTS.md
+
 # More Platforms — Timberborn 1.0 Migration Guide
 
 > **Version context:** This repository (`More Platforms`) is the **active working copy** for migrating Tobbert's More Platforms mod from **Timberborn 0.7** → **Timberborn 1.0**. The original 0.7 source lives in `MorePlatforms` (read-only upstream). All migration work — C# code, blueprints, localization, model exports — goes here.
@@ -10,10 +12,7 @@
 - **Target:** Timberborn 1.0.x
 - **Original Source Location (READ-ONLY):** `C:\Users\calloatti\source\repos\Mods\MorePlatforms`
 - **New Version Location (WORKING COPY):** `C:\Users\calloatti\source\repos\Mods\More Platforms`
-- **Decompiled Game Source:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-b769e88-sw`
-- **Game Docs (per-assembly MD):** `C:\Users\calloatti\source\repos\timberborn-docs-1.0.13.1-b769e88-sw`
-- **Ripped Game Assets:** `C:\Users\calloatti\source\repos\timberborn-ripped-1.0.13.1-b769e88-sw`
-- **Game Blueprints:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-b769e88-sw\Blueprints`
+
 - **Blender:** `C:\Users\calloatti\source\repos\Tools\blender-4.2.22-windows-x64\blender.exe`
 
 **IMPORTANT:** The original `Mods\MorePlatforms` folder is the immutable upstream source. Never edit files there.
@@ -103,9 +102,7 @@ MorePlatforms\
 - **Source .blend files (READ-ONLY, DO NOT EDIT):** `C:\Users\calloatti\source\repos\Mods\MorePlatforms\AssetBundles\Resources\Models\`
 - **Working .blend copies:** `Version-1.0\Models\`
 - **Build output:** Deploys to `Documents\Timberborn\Mods\More Platforms\Version-1.0\moreplatforms.dll`
-- **Decompiled game source:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-*`)
-- **Ripped assets:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1\` subfolders: `EditorDll`, `EditorUI`, `Localizations`, `Shaders`, `UI`, `Blueprints`
-- **Game Blueprints:** `C:\Users\calloatti\source\repos\timberborn-decompiled-1.0.13.1-b769e88-sw\Blueprints`
+
 - **Blender:** `C:\Users\calloatti\source\repos\Tools\blender-4.2.22-windows-x64\blender.exe`
 - **Timbermesh plugin:** `C:\Users\calloatti\source\repos\Tools\timbermesh\timbermesh_blender_plugin\`
 - **Timbermesh tools:** `C:\Users\calloatti\source\repos\Tools\timbermesh\timbermesh.ps1` (decoder), `patch_banner.py`, `bags.py`
@@ -330,7 +327,7 @@ Tool groups do NOT have a `GroupId` (nesting) field in 1.0. They are independent
 
 ### Vanilla Power Shaft Reference (Directional Connection Canonical Pattern)
 
-**Source:** `Timberborn.ModularShafts.cs` (internal, decompiled from `C:\Users\calloatti\source\repos\_decompiled.main`)
+**Source:** `Timberborn.ModularShafts.cs` (internal — see root AGENTS.md §4 for decompiled source paths)
 
 The power shafts implement direction-aware visual adaptation (same problem as MorePlatforms DirectionalConnector). Key architecture:
 

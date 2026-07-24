@@ -21,4 +21,5 @@ Tobbert.TripleReinforcedPlatform.DisplayName,"Dreifach verstärkte Plattform","-
 Tobbert.TripleReinforcedPlatform.Description,"Eine Plattform, die in Kombination mit den Seitenplattformen verwendet werden kann. Dient als schönere Alternative zu Deichen.","-"
 Tobbert.TripleReinforcedPlatform.FlavorDescription,"Stapel, stapel, stapel sie bis zur Spitze!","-"
 Tobbert.CategoryReinforcedPlatforms.DisplayName,"Verstärkte Plattformen","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Seitenplattformen","-"
+Tobbert.CategorySidePlatforms.DisplayName,"Mehr Plattformen","-"
+Tobbert.DynamiteBlocker.SidePlatformAttached,"Hier kann kein Dynamit platziert werden: An diesem Gelände ist eine Seitenplattform befestigt.","-"
