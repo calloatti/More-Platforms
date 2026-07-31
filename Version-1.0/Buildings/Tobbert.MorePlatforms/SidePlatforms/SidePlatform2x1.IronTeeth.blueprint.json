@@ -1,14 +1,14 @@
-﻿{
+{
   "BuildingSpec": {
     "SelectionSoundName": "Default",
     "LoopingSoundName": "",
     "BuildingCost": [
       {
         "Id": "MetalBlock",
-        "Amount": 6
+        "Amount": 7
       }
     ],
-    "ScienceCost": 250,
+    "ScienceCost": 300,
     "PlaceFinished": false,
     "FinishableWithBeaversOnSite": false,
     "DrawRangeBoundsOnIt": false
@@ -31,11 +31,18 @@
   },
   "BlockObjectSpec": {
     "Size": {
-      "X": 1,
+      "X": 2,
       "Y": 1,
       "Z": 1
     },
     "Blocks": [
+      {
+        "MatterBelow": "Any",
+        "Occupations": "Top, Corners",
+        "Stackable": "BlockObject",
+        "OccupyAllBelow": false,
+        "Underground": false
+      },
       {
         "MatterBelow": "Any",
         "Occupations": "Top, Corners",
@@ -58,14 +65,14 @@
   },
   "PlaceableBlockObjectSpec": {
     "ToolGroupId": "SidePlatforms",
-    "ToolOrder": 703,
+    "ToolOrder": 704,
     "ToolShape": "Square",
     "Layout": "Single",
     "CustomPivot": {
-      "HasCustomPivot": false,
+      "HasCustomPivot": true,
       "Coordinates": {
-        "X": 0.0,
-        "Y": 0.0,
+        "X": 0.5,
+        "Y": 0.5,
         "Z": 0.0
       }
     },
@@ -73,10 +80,10 @@
     "DevModeTool": false
   },
   "LabeledEntitySpec": {
-    "DisplayNameLocKey": "Tobbert.HorizontalPlatformEnd1x1.DisplayName",
-    "DescriptionLocKey": "Tobbert.HorizontalPlatformEnd1x1.Description",
-    "FlavorDescriptionLocKey": "Tobbert.HorizontalPlatformEnd1x1.FlavorDescription",
-    "Icon": "Buildings/SidePlatforms/PlatformIcon1x1"
+    "DisplayNameLocKey": "Tobbert.SidePlatform2x1.DisplayName",
+    "DescriptionLocKey": "Tobbert.SidePlatform2x1.Description",
+    "FlavorDescriptionLocKey": "Tobbert.SidePlatform2x1.FlavorDescription",
+    "Icon": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform2x1"
   },
   "ConstructionSiteProgressVisualizerSpec": {
     "ProgressThresholds": [
@@ -84,7 +91,7 @@
     ]
   },
   "TemplateSpec": {
-    "TemplateName": "HorizontalPlatformEnd1x1.IronTeeth",
+    "TemplateName": "SidePlatform2x1.IronTeeth",
     "BackwardCompatibleTemplateNames": [],
     "RequiredFeatureToggle": "",
     "DisablingFeatureToggle": ""
@@ -92,18 +99,18 @@
   "Children": {
     "#Finished": {
       "TimbermeshSpec": {
-        "Model": "Buildings/SidePlatforms/HorizontalPlatformEnd1x1.IronTeeth.Model"
+        "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform2x1.IronTeeth.Model"
       },
       "CollidersSpec": {
         "BoxColliders": [
           {
             "Center": {
-              "X": 0.5,
+              "X": 1.0,
               "Y": 0.5,
               "Z": 0.5
             },
             "Size": {
-              "X": 0.96,
+              "X": 1.96,
               "Y": 0.46,
               "Z": 0.96
             }
@@ -117,7 +124,7 @@
       "Children": {
         "ConstructionBase": {
           "TimbermeshSpec": {
-            "Model": "Buildings/SidePlatforms/ConstructionSite1x1.5.Model"
+            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/ConstructionSite1x1.Model"
           },
           "CollidersSpec": {
             "BoxColliders": [
@@ -140,7 +147,7 @@
         },
         "ConstructionStage0": {
           "TimbermeshSpec": {
-            "Model": "Buildings/SidePlatforms/ConstructionSite1x1.5.Model"
+            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/ConstructionSite1x1.Model"
           },
           "CollidersSpec": {
             "BoxColliders": [

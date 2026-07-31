@@ -1,25 +1,25 @@
 ID,Text,Comment
-Tobbert.HorizontalPlatformEnd1x1.DisplayName,"Yan Platform 1x1","-"
-Tobbert.HorizontalPlatformEnd1x1.Description,"Uçurumların ve çoğu binanın yanına yerleştirilebilen bir platform.","-"
-Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,"Bunları kendi üzerine istifleyebildiğinizi hayal edin.","-"
-Tobbert.HorizontalPlatformEnd2x1.DisplayName,"Yan Platform 2x1","-"
-Tobbert.HorizontalPlatformEnd2x1.Description,"Uçurumların ve çoğu binanın yanına yerleştirilebilen bir platform.","-"
-Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,"Platformları ikiye katla, eğlenceyi ikiye katla!","-"
-Tobbert.HorizontalPlatformEnd3x1.DisplayName,"Yan Platform 3x1","-"
-Tobbert.HorizontalPlatformEnd3x1.Description,"Uçurumların ve çoğu binanın yanına yerleştirilebilen bir platform.","-"
-Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,"Bu uzuuuun oğlanlar için.","-"
-Tobbert.HorizontalPlatformEnd4x1.DisplayName,"Yan Platform 4x1","-"
-Tobbert.HorizontalPlatformEnd4x1.Description,"Uçurumların ve çoğu binanın yanına yerleştirilebilen bir platform.","-"
-Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,"Fizik böyle çalışmaz.","-"
-Tobbert.ReinforcedPlatform.DisplayName,"Güçlendirilmiş Platform","-"
-Tobbert.ReinforcedPlatform.Description,"Yan Platformlarla kombinasyon halinde kullanılabilen bir platform. Setlerden daha iyi görünen bir seçenek olarak hizmet eder.","-"
-Tobbert.ReinforcedPlatform.FlavorDescription,"Tepeye kadar istifle!","-"
-Tobbert.DoubleReinforcedPlatform.DisplayName,"Çift Güçlendirilmiş Platform","-"
-Tobbert.DoubleReinforcedPlatform.Description,"Yan Platformlarla kombinasyon halinde kullanılabilen bir platform. Setlerden daha iyi görünen bir seçenek olarak hizmet eder.","-"
-Tobbert.DoubleReinforcedPlatform.FlavorDescription,"İstifle, tepeye kadar istifle!","-"
-Tobbert.TripleReinforcedPlatform.DisplayName,"Üçlü Güçlendirilmiş Platform","-"
-Tobbert.TripleReinforcedPlatform.Description,"Yan Platformlarla kombinasyon halinde kullanılabilen bir platform. Setlerden daha iyi görünen bir seçenek olarak hizmet eder.","-"
-Tobbert.TripleReinforcedPlatform.FlavorDescription,"İstifle, istifle, tepeye kadar istifle!","-"
-Tobbert.CategoryReinforcedPlatforms.DisplayName,"Güçlendirilmiş Platformlar","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Daha Fazla Platform","-"
-Tobbert.DynamiteBlocker.SidePlatformAttached,"Buraya dinamit yerleştirilemez: bu araziye bir yan platform bağlı.","-"
+Tobbert.SidePlatform1x1.DisplayName,Yan Platform 1x1,-
+Tobbert.SidePlatform1x1.Description,Kayalıkların yanında ve çoğu binanın yanına yerleştirilebilen bir platform.,-
+Tobbert.SidePlatform1x1.FlavorDescription,Bunların kendilerinin üzerine yığını olabileceğini hayal edin.,-
+Tobbert.SidePlatform2x1.DisplayName,Yan Platform 2x1,-
+Tobbert.SidePlatform2x1.Description,Kayalıkların yanında ve çoğu binanın yanına yerleştirilebilen bir platform.,-
+Tobbert.SidePlatform2x1.FlavorDescription,"Double the platforms, double the fun!",-
+Tobbert.SidePlatform3x1.DisplayName,Yan Platform 3x1,-
+Tobbert.SidePlatform3x1.Description,Kayalıkların yanında ve çoğu binanın yanına yerleştirilebilen bir platform.,-
+Tobbert.SidePlatform3x1.FlavorDescription,This is for the looooooong bois.,-
+Tobbert.SidePlatform4x1.DisplayName,Yan Platform 4x1,-
+Tobbert.SidePlatform4x1.Description,Kayalıkların yanında ve çoğu binanın yanına yerleştirilebilen bir platform.,-
+Tobbert.SidePlatform4x1.FlavorDescription,This is not how physics work.,-
+Tobbert.ReinforcedPlatform1x1x1.DisplayName,Güçlendirilmiş Platform,-
+Tobbert.ReinforcedPlatform1x1x1.Description,Yan Platformlarla birlikte kullanılabilen bir platform.,-
+Tobbert.ReinforcedPlatform1x1x1.FlavorDescription,Üste kadar yığın!,-
+Tobbert.ReinforcedPlatform1x1x2.DisplayName,Çift Güçlendirilmiş Platform,-
+Tobbert.ReinforcedPlatform1x1x2.Description,Yan Platformlarla birlikte kullanılabilen bir platform.,-
+Tobbert.ReinforcedPlatform1x1x2.FlavorDescription,"Yığın, üsteye kadar yığın!",-
+Tobbert.ReinforcedPlatform1x1x3.DisplayName,Üçlü Güçlendirilmiş Platform,-
+Tobbert.ReinforcedPlatform1x1x3.Description,Yan Platformlarla birlikte kullanılabilen bir platform.,-
+Tobbert.ReinforcedPlatform1x1x3.FlavorDescription,"Yığın, yığın, yığın, üsteye kadar yığın!",-
+Tobbert.CategoryReinforcedPlatforms.DisplayName,Güçlendirilmiş Platformlar,-
+Tobbert.CategorySidePlatforms.DisplayName,Daha Fazla Platform,-
+Tobbert.DynamiteBlocker.SidePlatformAttached,Buraya patlayıcı pozisyonu alamazsınız: bir yan platform bu araziye bağlı.,-

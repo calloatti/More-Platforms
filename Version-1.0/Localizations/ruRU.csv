@@ -1,25 +1,25 @@
 ID,Text,Comment
-Tobbert.HorizontalPlatformEnd1x1.DisplayName,"Боковая платформа 1x1","-"
-Tobbert.HorizontalPlatformEnd1x1.Description,"Платформа, которую можно разместить сбоку от скал и большинства зданий.","-"
-Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,"Представьте, если бы вы могли складывать их друг на друга.","-"
-Tobbert.HorizontalPlatformEnd2x1.DisplayName,"Боковая платформа 2x1","-"
-Tobbert.HorizontalPlatformEnd2x1.Description,"Платформа, которую можно разместить сбоку от скал и большинства зданий.","-"
-Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,"Двойные платформы — двойное удовольствие!","-"
-Tobbert.HorizontalPlatformEnd3x1.DisplayName,"Боковая платформа 3x1","-"
-Tobbert.HorizontalPlatformEnd3x1.Description,"Платформа, которую можно разместить сбоку от скал и большинства зданий.","-"
-Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,"Это для длииииинных парней.","-"
-Tobbert.HorizontalPlatformEnd4x1.DisplayName,"Боковая платформа 4x1","-"
-Tobbert.HorizontalPlatformEnd4x1.Description,"Платформа, которую можно разместить сбоку от скал и большинства зданий.","-"
-Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,"Физика так не работает.","-"
-Tobbert.ReinforcedPlatform.DisplayName,"Усиленная Платформа","-"
-Tobbert.ReinforcedPlatform.Description,"Платформа, которую можно использовать в сочетании с Боковыми Платформами. Служит более эстетичной альтернативой дамбам.","-"
-Tobbert.ReinforcedPlatform.FlavorDescription,"Сложите до самого верха!","-"
-Tobbert.DoubleReinforcedPlatform.DisplayName,"Двойная Усиленная Платформа","-"
-Tobbert.DoubleReinforcedPlatform.Description,"Платформа, которую можно использовать в сочетании с Боковыми Платформами. Служит более эстетичной альтернативой дамбам.","-"
-Tobbert.DoubleReinforcedPlatform.FlavorDescription,"Складывайте, складывайте до самого верха!","-"
-Tobbert.TripleReinforcedPlatform.DisplayName,"Тройная Усиленная Платформа","-"
-Tobbert.TripleReinforcedPlatform.Description,"Платформа, которую можно использовать в сочетании с Боковыми Платформами. Служит более эстетичной альтернативой дамбам.","-"
-Tobbert.TripleReinforcedPlatform.FlavorDescription,"Складывайте, складывайте, складывайте до самого верха!","-"
-Tobbert.CategoryReinforcedPlatforms.DisplayName,"Усиленные Платформы","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Больше Платформ","-"
-Tobbert.DynamiteBlocker.SidePlatformAttached,"Нельзя разместить динамит здесь: к этому участку прикреплена боковая платформа.","-"
+Tobbert.SidePlatform1x1.DisplayName,Боковая платформа 1x1,-
+Tobbert.SidePlatform1x1.Description,"Платформа, которую можно разместить на боковой стороне обрывов и большинства зданий.",-
+Tobbert.SidePlatform1x1.FlavorDescription,"Представьте, что вы можете этими стопировать.",-
+Tobbert.SidePlatform2x1.DisplayName,Боковая платформа 2x1,-
+Tobbert.SidePlatform2x1.Description,"Платформа, которую можно разместить на боковой стороне обрывов и большинства зданий.",-
+Tobbert.SidePlatform2x1.FlavorDescription,"Double the platforms, double the fun!",-
+Tobbert.SidePlatform3x1.DisplayName,Боковая платформа 3x1,-
+Tobbert.SidePlatform3x1.Description,"Платформа, которую можно разместить на боковой стороне обрывов и большинства зданий.",-
+Tobbert.SidePlatform3x1.FlavorDescription,This is for the looooooong bois.,-
+Tobbert.SidePlatform4x1.DisplayName,Боковая платформа 4x1,-
+Tobbert.SidePlatform4x1.Description,"Платформа, которую можно разместить на боковой стороне обрывов и большинства зданий.",-
+Tobbert.SidePlatform4x1.FlavorDescription,This is not how physics work.,-
+Tobbert.ReinforcedPlatform1x1x1.DisplayName,Армированная платформа,-
+Tobbert.ReinforcedPlatform1x1x1.Description,"Платформа, которую можно использовать совместно с боковыми платформами.",-
+Tobbert.ReinforcedPlatform1x1x1.FlavorDescription,Складывайте доверху!,-
+Tobbert.ReinforcedPlatform1x1x2.DisplayName,Двойная армированная платформа,-
+Tobbert.ReinforcedPlatform1x1x2.Description,"Платформа, которую можно использовать совместно с боковыми платформами.",-
+Tobbert.ReinforcedPlatform1x1x2.FlavorDescription,"Складывайте, складывайте доверху!",-
+Tobbert.ReinforcedPlatform1x1x3.DisplayName,Тройная армированная платформа,-
+Tobbert.ReinforcedPlatform1x1x3.Description,"Платформа, которую можно использовать совместно с боковыми платформами.",-
+Tobbert.ReinforcedPlatform1x1x3.FlavorDescription,"Складывайте, складывайте, складывайте доверху!",-
+Tobbert.CategoryReinforcedPlatforms.DisplayName,Армированные платформы,-
+Tobbert.CategorySidePlatforms.DisplayName,Больше платформ,-
+Tobbert.DynamiteBlocker.SidePlatformAttached,Нельзя поставить взрывчатку здесь: боковая платформа прикреплена к этой местности.,-

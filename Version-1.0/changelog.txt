@@ -1,7 +1,13 @@
+* Game Version: 1.0.0.0 - Mod Version: 3.1.1
+- Changed Buildings/ path to Buildings/Tobbert.MorePlatforms.
+* Game Version: 1.0.0.0 - Mod Version: 3.1.0
+- Ported Reinforced Platforms.
+- Changed string "HorizontalPlatformEnd" to "SidePlatform"
+- Added Harmony patch for saved games with old names
 * Game Version: 1.0.0.0 - Mod Version: 3.0.1
-- Prevent dynamite placement on terrain with side platforms attached
-- Updated localization translations
+- Prevent dynamite placement on terrain with side platforms attached.
+- Updated localization translations.
 * Game Version: 1.0.0.0 - Mod Version: 3.0.0
 - Ported to Timberborn 1.0/1.1
-- Replaced TimberAPI spec system with native blueprint system
-- Replaced TimberAPI prefab system with Configurator + TemplateModule
+- Replaced TimberAPI spec system with native blueprint system.
+- Replaced TimberAPI prefab system with Configurator + TemplateModule.

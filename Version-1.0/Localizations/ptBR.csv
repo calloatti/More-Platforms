@@ -1,25 +1,25 @@
 ID,Text,Comment
-Tobbert.HorizontalPlatformEnd1x1.DisplayName,"Plataforma Lateral 1x1","-"
-Tobbert.HorizontalPlatformEnd1x1.Description,"Uma plataforma que pode ser colocada ao lado de penhascos e da maioria dos edifícios.","-"
-Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,"Imagine se você pudesse empilhá-las sobre si mesmas.","-"
-Tobbert.HorizontalPlatformEnd2x1.DisplayName,"Plataforma Lateral 2x1","-"
-Tobbert.HorizontalPlatformEnd2x1.Description,"Uma plataforma que pode ser colocada ao lado de penhascos e da maioria dos edifícios.","-"
-Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,"Dobre as plataformas, dobre a diversão!","-"
-Tobbert.HorizontalPlatformEnd3x1.DisplayName,"Plataforma Lateral 3x1","-"
-Tobbert.HorizontalPlatformEnd3x1.Description,"Uma plataforma que pode ser colocada ao lado de penhascos e da maioria dos edifícios.","-"
-Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,"Isto é para os caras compriiiidos.","-"
-Tobbert.HorizontalPlatformEnd4x1.DisplayName,"Plataforma Lateral 4x1","-"
-Tobbert.HorizontalPlatformEnd4x1.Description,"Uma plataforma que pode ser colocada ao lado de penhascos e da maioria dos edifícios.","-"
-Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,"Não é assim que a física funciona.","-"
-Tobbert.ReinforcedPlatform.DisplayName,"Plataforma Reforçada","-"
-Tobbert.ReinforcedPlatform.Description,"Uma plataforma que pode ser usada em combinação com as Plataformas Laterais. Serve como uma opção mais bonita que diques.","-"
-Tobbert.ReinforcedPlatform.FlavorDescription,"Empilhe até o topo!","-"
-Tobbert.DoubleReinforcedPlatform.DisplayName,"Plataforma Duplamente Reforçada","-"
-Tobbert.DoubleReinforcedPlatform.Description,"Uma plataforma que pode ser usada em combinação com as Plataformas Laterais. Serve como uma opção mais bonita que diques.","-"
-Tobbert.DoubleReinforcedPlatform.FlavorDescription,"Empilhe, empilhe até o topo!","-"
-Tobbert.TripleReinforcedPlatform.DisplayName,"Plataforma Triplamente Reforçada","-"
-Tobbert.TripleReinforcedPlatform.Description,"Uma plataforma que pode ser usada em combinação com as Plataformas Laterais. Serve como uma opção mais bonita que diques.","-"
-Tobbert.TripleReinforcedPlatform.FlavorDescription,"Empilhe, empilhe, empilhe até o topo!","-"
-Tobbert.CategoryReinforcedPlatforms.DisplayName,"Plataformas Reforçadas","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Mais Plataformas","-"
-Tobbert.DynamiteBlocker.SidePlatformAttached,"Não é possível colocar dinamite aqui: uma plataforma lateral está ligada a este terreno.","-"
+Tobbert.SidePlatform1x1.DisplayName,Plataforma Lateral 1x1,-
+Tobbert.SidePlatform1x1.Description,Uma plataforma que pode ser colocada no lado de penhascos e na maioria dos edifícios.,-
+Tobbert.SidePlatform1x1.FlavorDescription,Imagine se você pudesse empilhar essas umas sobre as outras.,-
+Tobbert.SidePlatform2x1.DisplayName,Plataforma Lateral 2x1,-
+Tobbert.SidePlatform2x1.Description,Uma plataforma que pode ser colocada no lado de penhascos e na maioria dos edifícios.,-
+Tobbert.SidePlatform2x1.FlavorDescription,"Double the platforms, double the fun!",-
+Tobbert.SidePlatform3x1.DisplayName,Plataforma Lateral 3x1,-
+Tobbert.SidePlatform3x1.Description,Uma plataforma que pode ser colocada no lado de penhascos e na maioria dos edifícios.,-
+Tobbert.SidePlatform3x1.FlavorDescription,This is for the looooooong bois.,-
+Tobbert.SidePlatform4x1.DisplayName,Plataforma Lateral 4x1,-
+Tobbert.SidePlatform4x1.Description,Uma plataforma que pode ser colocada no lado de penhascos e na maioria dos edifícios.,-
+Tobbert.SidePlatform4x1.FlavorDescription,This is not how physics work.,-
+Tobbert.ReinforcedPlatform1x1x1.DisplayName,Plataforma Reforçada,-
+Tobbert.ReinforcedPlatform1x1x1.Description,Uma plataforma que pode ser usada em combinação com as Plataformas Laterais.,-
+Tobbert.ReinforcedPlatform1x1x1.FlavorDescription,Empilhe até o topo!,-
+Tobbert.ReinforcedPlatform1x1x2.DisplayName,Dobro Plataforma Reforçada,-
+Tobbert.ReinforcedPlatform1x1x2.Description,Uma plataforma que pode ser usada em combinação com as Plataformas Laterais.,-
+Tobbert.ReinforcedPlatform1x1x2.FlavorDescription,"Empilhe, empilhe até o topo!",-
+Tobbert.ReinforcedPlatform1x1x3.DisplayName,Triplo Plataforma Reforçada,-
+Tobbert.ReinforcedPlatform1x1x3.Description,Uma plataforma que pode ser usada em combinação com as Plataformas Laterais.,-
+Tobbert.ReinforcedPlatform1x1x3.FlavorDescription,"Empilhe, empilhe, empilhe até o topo!",-
+Tobbert.CategoryReinforcedPlatforms.DisplayName,Plataformas Reforçadas,-
+Tobbert.CategorySidePlatforms.DisplayName,Mais Plataformas,-
+Tobbert.DynamiteBlocker.SidePlatformAttached,Não é possível colocar explosivos aqui: uma plataforma lateral está presa a este terreno.,-

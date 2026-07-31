@@ -1,25 +1,25 @@
 ID,Text,Comment
-Tobbert.HorizontalPlatformEnd1x1.DisplayName,"Platforma boczna 1x1","-"
-Tobbert.HorizontalPlatformEnd1x1.Description,"Platforma, którą można umieścić z boku klifów i większości budynków.","-"
-Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,"Wyobraź sobie, że można je układać na sobie.","-"
-Tobbert.HorizontalPlatformEnd2x1.DisplayName,"Platforma boczna 2x1","-"
-Tobbert.HorizontalPlatformEnd2x1.Description,"Platforma, którą można umieścić z boku klifów i większości budynków.","-"
-Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,"Podwójne platformy, podwójna zabawa!","-"
-Tobbert.HorizontalPlatformEnd3x1.DisplayName,"Platforma boczna 3x1","-"
-Tobbert.HorizontalPlatformEnd3x1.Description,"Platforma, którą można umieścić z boku klifów i większości budynków.","-"
-Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,"To dla długich chłopaków.","-"
-Tobbert.HorizontalPlatformEnd4x1.DisplayName,"Platforma boczna 4x1","-"
-Tobbert.HorizontalPlatformEnd4x1.Description,"Platforma, którą można umieścić z boku klifów i większości budynków.","-"
-Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,"Tak nie działa fizyka.","-"
-Tobbert.ReinforcedPlatform.DisplayName,"Wzmocniona Platforma","-"
-Tobbert.ReinforcedPlatform.Description,"Platforma, którą można używać w połączeniu z Platformami Bocznymi. Służy jako lepiej wyglądająca opcja niż wały.","-"
-Tobbert.ReinforcedPlatform.FlavorDescription,"Układaj na szczyt!","-"
-Tobbert.DoubleReinforcedPlatform.DisplayName,"Podwójnie Wzmocniona Platforma","-"
-Tobbert.DoubleReinforcedPlatform.Description,"Platforma, którą można używać w połączeniu z Platformami Bocznymi. Służy jako lepiej wyglądająca opcja niż wały.","-"
-Tobbert.DoubleReinforcedPlatform.FlavorDescription,"Układaj, układaj na szczyt!","-"
-Tobbert.TripleReinforcedPlatform.DisplayName,"Potrójnie Wzmocniona Platforma","-"
-Tobbert.TripleReinforcedPlatform.Description,"Platforma, którą można używać w połączeniu z Platformami Bocznymi. Służy jako lepiej wyglądająca opcja niż wały.","-"
-Tobbert.TripleReinforcedPlatform.FlavorDescription,"Układaj, układaj, układaj na szczyt!","-"
-Tobbert.CategoryReinforcedPlatforms.DisplayName,"Wzmocnione Platformy","-"
-Tobbert.CategorySidePlatforms.DisplayName,"Więcej Platform","-"
-Tobbert.DynamiteBlocker.SidePlatformAttached,"Nie można tu umieścić dynamitu: platforma boczna jest przymocowana do tego terenu.","-"
+Tobbert.SidePlatform1x1.DisplayName,Platforma boczna 1x1,-
+Tobbert.SidePlatform1x1.Description,"Platforma, którą można umieścić na boku klifów i większości budynków.",-
+Tobbert.SidePlatform1x1.FlavorDescription,"Wyobraź sobie, że mógłbyś te jeden na drugim stosować.",-
+Tobbert.SidePlatform2x1.DisplayName,Platforma boczna 2x1,-
+Tobbert.SidePlatform2x1.Description,"Platforma, którą można umieścić na boku klifów i większości budynków.",-
+Tobbert.SidePlatform2x1.FlavorDescription,"Double the platforms, double the fun!",-
+Tobbert.SidePlatform3x1.DisplayName,Platforma boczna 3x1,-
+Tobbert.SidePlatform3x1.Description,"Platforma, którą można umieścić na boku klifów i większości budynków.",-
+Tobbert.SidePlatform3x1.FlavorDescription,This is for the looooooong bois.,-
+Tobbert.SidePlatform4x1.DisplayName,Platforma boczna 4x1,-
+Tobbert.SidePlatform4x1.Description,"Platforma, którą można umieścić na boku klifów i większości budynków.",-
+Tobbert.SidePlatform4x1.FlavorDescription,This is not how physics work.,-
+Tobbert.ReinforcedPlatform1x1x1.DisplayName,Wzmocniona platforma,-
+Tobbert.ReinforcedPlatform1x1x1.Description,"Platforma, którą można stosować w połączeniu z platformami bocznymi.",-
+Tobbert.ReinforcedPlatform1x1x1.FlavorDescription,Zasypaj to do góry!,-
+Tobbert.ReinforcedPlatform1x1x2.DisplayName,Podwójna wzmocniona platforma,-
+Tobbert.ReinforcedPlatform1x1x2.Description,"Platforma, którą można stosować w połączeniu z platformami bocznymi.",-
+Tobbert.ReinforcedPlatform1x1x2.FlavorDescription,"Zasypaj, zasypuj do góry!",-
+Tobbert.ReinforcedPlatform1x1x3.DisplayName,Potrójna wzmocniona platforma,-
+Tobbert.ReinforcedPlatform1x1x3.Description,"Platforma, którą można stosować w połączeniu z platformami bocznymi.",-
+Tobbert.ReinforcedPlatform1x1x3.FlavorDescription,"Zasypaj, zasypuj, zasypuj do góry!",-
+Tobbert.CategoryReinforcedPlatforms.DisplayName,Wzmocnione platformy,-
+Tobbert.CategorySidePlatforms.DisplayName,Więcej platform,-
+Tobbert.DynamiteBlocker.SidePlatformAttached,Nie można tu postawić materiałów wybuchowych: do tego terenu przyłączona jest platforma boczna.,-

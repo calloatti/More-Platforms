@@ -113,7 +113,7 @@ MorePlatforms\
 - **Runtime crash FIXED:** `Material BaseWood_Brown_Folktails.001 not found in repository` was caused by .blend materials using underscore naming (`BaseWood_Brown_Folktails`) with Blender dedup suffixes (`.001`, `.002`, etc.) instead of game's dot notation (`BaseWood_Brown.Folktails`)
 - **Fix applied:** `.scratch/fix_materials.py` renamed/merged all materials to correct game names. `export_timbermesh.py` updated to read from `Models/`. All .timbermesh re-exported and deployed.
 - **Load-time validation FIXED:** Side platforms attached to other buildings (not terrain) were being deleted on game load by `TerrainPhysicsPostLoader.RemoveBlockObjects()`. The BFS flood fill only propagates horizontally through `UnfinishedGround` blocks, not regular `BlockObject` stackable. Fixed via Harmony postfix `TerrainPhysicsPostLoaderPatch.cs` on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Required publicizing `Timberborn.TerrainPhysics`.
-- **ConstructionSite1x1.5 model REBUILT:** Imported vanilla `ConstructionBase1x1.Model.timbermesh` from ripped assets via `timbermesh_plugin_2026-07-15.py`, deleted Dirt mesh (kept BeaverCarryingModels wood frame), rotated -90° around Y (horizontal → vertical in YZ plane, faces -X), origin at Blender location `(0, 0, 1)`. Game-space bounds: X[0, 0.322] Y[0, 1] Z[0, 1] — narrow scaffold at cliff-facing edge.
+- **ConstructionSite1x1 model REBUILT:** Imported vanilla `ConstructionBase1x1.Model.timbermesh` from ripped assets via `timbermesh_plugin_2026-07-15.py`, deleted Dirt mesh (kept BeaverCarryingModels wood frame), rotated -90° around Y (horizontal → vertical in YZ plane, faces -X), origin at Blender location `(0, 0, 1)`. Game-space bounds: X[0, 0.322] Y[0, 1] Z[0, 1] — narrow scaffold at cliff-facing edge.
 
 ## Active C# Source Code — Full Details
 
@@ -371,7 +371,7 @@ When `PlaceFinished: true`, `#Unfinished` only has the ConstructionBase (no Cons
 
 Standard `ConstructionSiteProgressVisualizerSpec` has `ProgressThresholds: [0.0]` — two stages: initial (ConstructionBase + Stage0) and finished (#Finished).
 
-**This mod uses:** shared `ConstructionSite1x1.5.Model` across all blueprints (ConstructionBase pattern).
+**This mod uses:** shared `ConstructionSite1x1.Model` across all blueprints (ConstructionBase pattern).
 
 ## Material Name Mapping (Blender → Game)
 
@@ -382,8 +382,8 @@ Critical: Use `Name.FactionId` dot notation (e.g., `BaseWood_Brown.Folktails`), 
 | `BaseWood_Brown_Folktails` / `.001`/`.002`/`.003`/`.004`/`.006` | `BaseWood_Brown.Folktails` | All platform blends |
 | `BaseMetal_IronTeeth.001` / `.004` | `BaseMetal.IronTeeth` | End3x1, End4x1 |
 | `BaseWood_DarkBrown_IronTeeth.001` / `.002` | `BaseWood_DarkBrown.IronTeeth` | End3x1, End4x1 |
-| `BeaverCarryingModels` | `BeaverCarryingModels` (no change) | ConstructionSite1x1.5 |
-| `Dots Stroke` | Unused / remove | ConstructionSite1x1.5 |
+| `BeaverCarryingModels` | `BeaverCarryingModels` (no change) | ConstructionSite1x1 |
+| `Dots Stroke` | Unused / remove | ConstructionSite1x1 |
 
 ## Export Process
 
@@ -584,9 +584,9 @@ Finds the newest `.timber` save, closes Timberborn gracefully, then relaunches v
 12. **Timbermesh export order:** Always apply material fixes to ALL `.blend` files before running `export_timbermesh.py`. Exporting all stems from unfixed blends will produce `.timbermesh` files with wrong material names (underscore instead of dot notation), which crash at runtime with "not found in repository" errors.
 13. **`export_timbermesh.py` caveat:** The script exports ALL collections in a blend to the same output path per stem+faction — if a blend has multiple collections, the last one overwrites the rest. Each blend should have exactly one collection for this to work correctly. When only specific files were modified, run a targeted export (see `.scratch/export_end_only.py`) instead of the full export to avoid overwriting working timbermeshes.
 14. **TerrainPhysicsPostLoader flood fill limitation:** The BFS only propagates horizontally through `UnfinishedGround` blocks and terrain cells. Regular `BlockObject` stackable blocks only propagate **upward**, never sideways. This means side platforms attached to buildings (not terrain) are never reached by the flood fill and get deleted on load. Fix: Harmony postfix on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Requires `Timberborn.TerrainPhysics` publicized.
-15. **ConstructionSite1x1.5 rebuild process:** Import vanilla `ConstructionBase1x1.Model.timbermesh` via `timbermesh_plugin_2026-07-15.py` (which applies Unity→Blender coordinate transform). Delete Dirt mesh, keep `BeaverCarryingModels` wood frame. Rotate -90° around Y (horizontal→vertical in YZ plane, faces -X). Set origin via `obj.location = (0, 0, 1)`. Use `frame.data.transform(rot)` for rotation + `frame.location` for positioning — never counter-translate vertices. The timbermesh exporter bakes `matrix_world`.
+15. **ConstructionSite1x1 rebuild process:** Import vanilla `ConstructionBase1x1.Model.timbermesh` via `timbermesh_plugin_2026-07-15.py` (which applies Unity→Blender coordinate transform). Delete Dirt mesh, keep `BeaverCarryingModels` wood frame. Rotate -90° around Y (horizontal→vertical in YZ plane, faces -X). Set origin via `obj.location = (0, 0, 1)`. Use `frame.data.transform(rot)` for rotation + `frame.location` for positioning — never counter-translate vertices. The timbermesh exporter bakes `matrix_world`.
 16. **Blender ↔ Game coordinate mapping:** The import plugin converts Unity→Blender via `(bx, by, bz) = (-ux, -uz, uy)`. The timbermesh exporter does the reverse: `(ux, uy, uz) = (-bx, bz, -by)`. To position a model in game-space `[tx, ty, tz] + local`, compute the required Blender location by solving the export transform.
-17. **ConstructionSite1x1.5 final specs:** Material `BeaverCarryingModels` only (no Dirt). Game-space bounds: X[0, 0.322] Y[-0.022, 1.022] Z[-0.022, 1.022] — narrow scaffold at left/cliff-facing edge of the block. Faction-independent; all blueprints reference `ConstructionSite1x1.5.Model` without faction suffix.
+17. **ConstructionSite1x1 final specs:** Material `BeaverCarryingModels` only (no Dirt). Game-space bounds: X[0, 0.322] Y[-0.022, 1.022] Z[-0.022, 1.022] — narrow scaffold at left/cliff-facing edge of the block. Faction-independent; all blueprints reference `ConstructionSite1x1.Model` without faction suffix.
 18. **Publicizing `Timberborn.TerrainPhysics`, `Timberborn.BlockObjectPickingSystem`:** Required to access private fields of `TerrainPhysicsPostLoader` and types used by `DeconstructionToolPatch`. Both are in the csproj's per-project `<Publicize>` list — NOT in `CommonModSettings.props` (which is shared across mods).
 19. **Deconstruction tool cascade:** The `TerrainAndBlockObjectsToDeleteFinder.AddNextBlockObjectToValidate` method is the single hook point for both preview highlighting and actual deletion. Patched via Harmony postfix: when a building is queued for deletion, it scans all 4 horizontal neighbors of every occupied block; any `SidePlatform` whose attachment coordinate matches is enqueued for deletion and recursed into for chained platforms. This approach works because the base `TerrainAndBlockObjectsToDeleteFinder` is used by both the preview (red highlight) and the actual deletion pass.
 
