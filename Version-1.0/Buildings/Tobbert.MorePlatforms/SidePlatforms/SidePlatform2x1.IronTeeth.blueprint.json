@@ -21,13 +21,17 @@
     "ConstructionModeModel": "Finished",
     "UndergroundModelDepth": 0
   },
-  "SidePlatformSpec": {},
+  "SidePlatformSpec": {
+  },
   "BlockObjectNavMeshSettingsSpec": {
     "NoAutoWalls": true,
     "GenerateFloorsOnStackable": true,
-    "EdgeGroups": [],
-    "UnblockedCoordinates": [],
-    "BlockedEdges": []
+    "EdgeGroups": [
+    ],
+    "UnblockedCoordinates": [
+    ],
+    "BlockedEdges": [
+    ]
   },
   "BlockObjectSpec": {
     "Size": {
@@ -92,7 +96,8 @@
   },
   "TemplateSpec": {
     "TemplateName": "SidePlatform2x1.IronTeeth",
-    "BackwardCompatibleTemplateNames": [],
+    "BackwardCompatibleTemplateNames": [
+    ],
     "RequiredFeatureToggle": "",
     "DisablingFeatureToggle": ""
   },
@@ -116,8 +121,10 @@
             }
           }
         ],
-        "SphereColliders": [],
-        "CapsuleColliders": []
+        "SphereColliders": [
+        ],
+        "CapsuleColliders": [
+        ]
       }
     },
     "#Unfinished": {
@@ -141,31 +148,35 @@
                 }
               }
             ],
-            "SphereColliders": [],
-            "CapsuleColliders": []
+            "SphereColliders": [
+            ],
+            "CapsuleColliders": [
+            ]
           }
         },
         "ConstructionStage0": {
           "TimbermeshSpec": {
-            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/ConstructionSite1x1.Model"
+            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform2x1.ConstructionStage0.IronTeeth.Model"
           },
           "CollidersSpec": {
             "BoxColliders": [
               {
                 "Center": {
-                  "X": 0.5,
+                  "X": 1.0,
                   "Y": 0.5,
                   "Z": 0.5
                 },
                 "Size": {
-                  "X": 0.96,
-                  "Y": 0.96,
+                  "X": 1.96,
+                  "Y": 0.46,
                   "Z": 0.96
                 }
               }
             ],
-            "SphereColliders": [],
-            "CapsuleColliders": []
+            "SphereColliders": [
+            ],
+            "CapsuleColliders": [
+            ]
           }
         }
       }

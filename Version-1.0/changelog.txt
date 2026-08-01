@@ -1,3 +1,7 @@
+* Game Version: 1.0.0.0 - Mod Version: 3.1.2
+- Added ConstructionStage0 models to side platforms (Knatte_Anka)
+- Updated model for Side platform 4x1 (Knatte_Anka)
+- Minor edits to side platform models and ConstructionBase model (Knatte_Anka)
 * Game Version: 1.0.0.0 - Mod Version: 3.1.1
 - Changed Buildings/ path to Buildings/Tobbert.MorePlatforms.
 * Game Version: 1.0.0.0 - Mod Version: 3.1.0

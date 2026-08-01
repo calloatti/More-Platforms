@@ -140,7 +140,7 @@
         },
         "ConstructionStage0": {
           "TimbermeshSpec": {
-            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/ConstructionSite1x1.Model"
+            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform1x1.ConstructionStage0.IronTeeth.Model"
           },
           "CollidersSpec": {
             "BoxColliders": [
