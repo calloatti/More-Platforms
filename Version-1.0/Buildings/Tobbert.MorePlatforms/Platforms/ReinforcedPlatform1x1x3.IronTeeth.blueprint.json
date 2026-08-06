@@ -1,18 +1,9 @@
-{
+﻿{
   "BuildingSpec": {
     "SelectionSoundName": "Default",
     "LoopingSoundName": "",
-    "BuildingCost": [
-      {
-        "Id": "Plank",
-        "Amount": 16
-      },
-      {
-        "Id": "MetalBlock",
-        "Amount": 8
-      }
-    ],
-    "ScienceCost": 750,
+    "BuildingCost": [{"Id": "Plank", "Amount": 10}, {"Id": "MetalBlock", "Amount": 6}],
+    "ScienceCost": 400,
     "PlaceFinished": false,
     "FinishableWithBeaversOnSite": true,
     "DrawRangeBoundsOnIt": false
@@ -32,11 +23,7 @@
     "DisablingFeatureToggle": ""
   },
   "BlockObjectSpec": {
-    "Size": {
-      "X": 1,
-      "Y": 1,
-      "Z": 3
-    },
+    "Size": {"X": 1, "Y": 1, "Z": 3},
     "Blocks": [
       {
         "MatterBelow": "GroundOrStackable",
@@ -60,14 +47,7 @@
         "Underground": false
       }
     ],
-    "Entrance": {
-      "HasEntrance": false,
-      "Coordinates": {
-        "X": 0,
-        "Y": 0,
-        "Z": 0
-      }
-    },
+    "Entrance": {"HasEntrance": false, "Coordinates": {"X": 0, "Y": 0, "Z": 0}},
     "BaseZ": 0,
     "Overridable": false,
     "Flippable": false
@@ -84,14 +64,7 @@
     "ToolOrder": 802,
     "ToolShape": "Square",
     "Layout": "Rectangle",
-    "CustomPivot": {
-      "HasCustomPivot": false,
-      "Coordinates": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 0.0
-      }
-    },
+    "CustomPivot": {"HasCustomPivot": false, "Coordinates": {"X": 0, "Y": 0, "Z": 0}},
     "CanBeAttachedToTerrainSide": false,
     "DevModeTool": false
   },
@@ -101,78 +74,17 @@
     "FlavorDescriptionLocKey": "Tobbert.ReinforcedPlatform1x1x3.FlavorDescription",
     "Icon": "Buildings/Tobbert.MorePlatforms/Platforms/ReinforcedPlatform1x1x3"
   },
-  "ConstructionSiteProgressVisualizerSpec": {
-    "ProgressThresholds": [
-      0.0
-    ]
-  },
+  "ConstructionSiteProgressVisualizerSpec": {"ProgressThresholds": [0]},
   "Children": {
     "#Finished": {
-      "TimbermeshSpec": {
-        "Model": "Buildings/Tobbert.MorePlatforms/Platforms/ReinforcedPlatform1x1x3.IronTeeth.Model"
-      },
+      "TimbermeshSpec": {"Model": "Buildings/Tobbert.MorePlatforms/Platforms/ReinforcedPlatform1x1x3.IronTeeth.Model"},
       "CollidersSpec": {
         "BoxColliders": [
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 1.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 1.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 1.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 1.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.5,
-              "Y": 2.92232513,
-              "Z": 0.5
-            },
-            "Size": {
-              "X": 0.98,
-              "Y": 0.155349731,
-              "Z": 0.98
-            }
-          }
+          {"Center": {"X": 0.11, "Y": 1.4, "Z": 0.11}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.89, "Y": 1.4, "Z": 0.11}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.89, "Y": 1.4, "Z": 0.89}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.11, "Y": 1.4, "Z": 0.89}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.5, "Y": 2.92232513, "Z": 0.5}, "Size": {"X": 0.98, "Y": 0.155349731, "Z": 0.98}}
         ],
         "SphereColliders": [],
         "CapsuleColliders": []
@@ -184,54 +96,10 @@
       },
       "CollidersSpec": {
         "BoxColliders": [
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 1.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 1.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 1.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          },
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 1.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.200000048,
-              "Y": 2.9,
-              "Z": 0.200000048
-            }
-          }
+          {"Center": {"X": 0.89, "Y": 1.4, "Z": 0.89}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.11, "Y": 1.4, "Z": 0.89}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.89, "Y": 1.4, "Z": 0.11}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+          {"Center": {"X": 0.11, "Y": 1.4, "Z": 0.11}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}}
         ],
         "SphereColliders": [],
         "CapsuleColliders": []
@@ -248,66 +116,11 @@
           },
           "CollidersSpec": {
             "BoxColliders": [
-              {
-                "Center": {
-                  "X": 0.11,
-                  "Y": 1.4,
-                  "Z": 0.11
-                },
-                "Size": {
-                  "X": 0.200000048,
-                  "Y": 2.9,
-                  "Z": 0.200000048
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.89,
-                  "Y": 1.4,
-                  "Z": 0.11
-                },
-                "Size": {
-                  "X": 0.200000048,
-                  "Y": 2.9,
-                  "Z": 0.200000048
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.89,
-                  "Y": 1.4,
-                  "Z": 0.89
-                },
-                "Size": {
-                  "X": 0.200000048,
-                  "Y": 2.9,
-                  "Z": 0.200000048
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.11,
-                  "Y": 1.4,
-                  "Z": 0.89
-                },
-                "Size": {
-                  "X": 0.200000048,
-                  "Y": 2.9,
-                  "Z": 0.200000048
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.5,
-                  "Y": 0.05,
-                  "Z": 0.5
-                },
-                "Size": {
-                  "X": 1.0,
-                  "Y": 0.1,
-                  "Z": 1.0
-                }
-              }
+              {"Center": {"X": 0.11, "Y": 1.4, "Z": 0.11}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+              {"Center": {"X": 0.89, "Y": 1.4, "Z": 0.11}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+              {"Center": {"X": 0.89, "Y": 1.4, "Z": 0.89}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+              {"Center": {"X": 0.11, "Y": 1.4, "Z": 0.89}, "Size": {"X": 0.200000048, "Y": 2.9, "Z": 0.200000048}},
+              {"Center": {"X": 0.5, "Y": 0.05, "Z": 0.5}, "Size": {"X": 1, "Y": 0.1, "Z": 1}}
             ],
             "SphereColliders": [],
             "CapsuleColliders": []

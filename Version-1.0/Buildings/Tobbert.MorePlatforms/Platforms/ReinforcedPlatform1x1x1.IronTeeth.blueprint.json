@@ -1,18 +1,9 @@
-{
+﻿{
   "BuildingSpec": {
     "SelectionSoundName": "Default",
     "LoopingSoundName": "",
-    "BuildingCost": [
-      {
-        "Id": "Plank",
-        "Amount": 8
-      },
-      {
-        "Id": "MetalBlock",
-        "Amount": 4
-      }
-    ],
-    "ScienceCost": 250,
+    "BuildingCost": [{"Id": "Plank", "Amount": 6}, {"Id": "MetalBlock", "Amount": 2}],
+    "ScienceCost": 200,
     "PlaceFinished": false,
     "FinishableWithBeaversOnSite": true,
     "DrawRangeBoundsOnIt": false
@@ -32,11 +23,7 @@
     "DisablingFeatureToggle": ""
   },
   "BlockObjectSpec": {
-    "Size": {
-      "X": 1,
-      "Y": 1,
-      "Z": 1
-    },
+    "Size": {"X": 1, "Y": 1, "Z": 1},
     "Blocks": [
       {
         "MatterBelow": "GroundOrStackable",
@@ -46,14 +33,7 @@
         "Underground": false
       }
     ],
-    "Entrance": {
-      "HasEntrance": false,
-      "Coordinates": {
-        "X": 0,
-        "Y": 0,
-        "Z": 0
-      }
-    },
+    "Entrance": {"HasEntrance": false, "Coordinates": {"X": 0, "Y": 0, "Z": 0}},
     "BaseZ": 0,
     "Overridable": false,
     "Flippable": false
@@ -70,14 +50,7 @@
     "ToolOrder": 800,
     "ToolShape": "Square",
     "Layout": "Rectangle",
-    "CustomPivot": {
-      "HasCustomPivot": false,
-      "Coordinates": {
-        "X": 0.0,
-        "Y": 0.0,
-        "Z": 0.0
-      }
-    },
+    "CustomPivot": {"HasCustomPivot": false, "Coordinates": {"X": 0, "Y": 0, "Z": 0}},
     "CanBeAttachedToTerrainSide": false,
     "DevModeTool": false
   },
@@ -87,78 +60,17 @@
     "FlavorDescriptionLocKey": "Tobbert.ReinforcedPlatform1x1x1.FlavorDescription",
     "Icon": "Buildings/Tobbert.MorePlatforms/Platforms/ReinforcedPlatform1x1x1"
   },
-  "ConstructionSiteProgressVisualizerSpec": {
-    "ProgressThresholds": [
-      0.0
-    ]
-  },
+  "ConstructionSiteProgressVisualizerSpec": {"ProgressThresholds": [0]},
   "Children": {
     "#Finished": {
-      "TimbermeshSpec": {
-        "Model": "Buildings/Tobbert.MorePlatforms/Platforms/ReinforcedPlatform1x1x1.IronTeeth.Model"
-      },
+      "TimbermeshSpec": {"Model": "Buildings/Tobbert.MorePlatforms/Platforms/ReinforcedPlatform1x1x1.IronTeeth.Model"},
       "CollidersSpec": {
         "BoxColliders": [
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 0.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 0.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 0.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 0.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.5,
-              "Y": 0.9257401,
-              "Z": 0.5
-            },
-            "Size": {
-              "X": 0.98,
-              "Y": 0.170637429,
-              "Z": 0.98
-            }
-          }
+          {"Center": {"X": 0.11, "Y": 0.4, "Z": 0.11}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.89, "Y": 0.4, "Z": 0.11}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.89, "Y": 0.4, "Z": 0.89}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.11, "Y": 0.4, "Z": 0.89}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.5, "Y": 0.9257401, "Z": 0.5}, "Size": {"X": 0.98, "Y": 0.170637429, "Z": 0.98}}
         ],
         "SphereColliders": [],
         "CapsuleColliders": []
@@ -170,54 +82,10 @@
       },
       "CollidersSpec": {
         "BoxColliders": [
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 0.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 0.4,
-              "Z": 0.11
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.89,
-              "Y": 0.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          },
-          {
-            "Center": {
-              "X": 0.11,
-              "Y": 0.4,
-              "Z": 0.89
-            },
-            "Size": {
-              "X": 0.2,
-              "Y": 0.9,
-              "Z": 0.2
-            }
-          }
+          {"Center": {"X": 0.11, "Y": 0.4, "Z": 0.11}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.89, "Y": 0.4, "Z": 0.11}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.89, "Y": 0.4, "Z": 0.89}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+          {"Center": {"X": 0.11, "Y": 0.4, "Z": 0.89}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}}
         ],
         "SphereColliders": [],
         "CapsuleColliders": []
@@ -234,66 +102,11 @@
           },
           "CollidersSpec": {
             "BoxColliders": [
-              {
-                "Center": {
-                  "X": 0.11,
-                  "Y": 0.4,
-                  "Z": 0.11
-                },
-                "Size": {
-                  "X": 0.2,
-                  "Y": 0.9,
-                  "Z": 0.2
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.89,
-                  "Y": 0.4,
-                  "Z": 0.11
-                },
-                "Size": {
-                  "X": 0.2,
-                  "Y": 0.9,
-                  "Z": 0.2
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.89,
-                  "Y": 0.4,
-                  "Z": 0.89
-                },
-                "Size": {
-                  "X": 0.2,
-                  "Y": 0.9,
-                  "Z": 0.2
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.11,
-                  "Y": 0.4,
-                  "Z": 0.89
-                },
-                "Size": {
-                  "X": 0.2,
-                  "Y": 0.9,
-                  "Z": 0.2
-                }
-              },
-              {
-                "Center": {
-                  "X": 0.5,
-                  "Y": 0.05,
-                  "Z": 0.5
-                },
-                "Size": {
-                  "X": 1.0,
-                  "Y": 0.1,
-                  "Z": 1.0
-                }
-              }
+              {"Center": {"X": 0.11, "Y": 0.4, "Z": 0.11}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+              {"Center": {"X": 0.89, "Y": 0.4, "Z": 0.11}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+              {"Center": {"X": 0.89, "Y": 0.4, "Z": 0.89}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+              {"Center": {"X": 0.11, "Y": 0.4, "Z": 0.89}, "Size": {"X": 0.2, "Y": 0.9, "Z": 0.2}},
+              {"Center": {"X": 0.5, "Y": 0.05, "Z": 0.5}, "Size": {"X": 1, "Y": 0.1, "Z": 1}}
             ],
             "SphereColliders": [],
             "CapsuleColliders": []

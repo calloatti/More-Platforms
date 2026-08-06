@@ -1,14 +1,9 @@
-{
+﻿{
   "BuildingSpec": {
     "SelectionSoundName": "Default",
     "LoopingSoundName": "",
-    "BuildingCost": [
-      {
-        "Id": "MetalBlock",
-        "Amount": 8
-      }
-    ],
-    "ScienceCost": 350,
+    "BuildingCost": [{"Id": "Log", "Amount": 18}, {"Id": "Plank", "Amount": 18}, {"Id": "MetalBlock", "Amount": 6}],
+    "ScienceCost": 500,
     "PlaceFinished": false,
     "FinishableWithBeaversOnSite": false,
     "DrawRangeBoundsOnIt": false
@@ -21,24 +16,16 @@
     "ConstructionModeModel": "Finished",
     "UndergroundModelDepth": 0
   },
-  "SidePlatformSpec": {
-  },
+  "SidePlatformSpec": {},
   "BlockObjectNavMeshSettingsSpec": {
     "NoAutoWalls": true,
     "GenerateFloorsOnStackable": true,
-    "EdgeGroups": [
-    ],
-    "UnblockedCoordinates": [
-    ],
-    "BlockedEdges": [
-    ]
+    "EdgeGroups": [],
+    "UnblockedCoordinates": [],
+    "BlockedEdges": []
   },
   "BlockObjectSpec": {
-    "Size": {
-      "X": 3,
-      "Y": 1,
-      "Z": 1
-    },
+    "Size": {"X": 3, "Y": 1, "Z": 1},
     "Blocks": [
       {
         "MatterBelow": "Any",
@@ -62,14 +49,7 @@
         "Underground": false
       }
     ],
-    "Entrance": {
-      "HasEntrance": false,
-      "Coordinates": {
-        "X": 0,
-        "Y": 0,
-        "Z": 0
-      }
-    },
+    "Entrance": {"HasEntrance": false, "Coordinates": {"X": 0, "Y": 0, "Z": 0}},
     "BaseZ": 0,
     "Overridable": false,
     "Flippable": false
@@ -79,14 +59,7 @@
     "ToolOrder": 705,
     "ToolShape": "Square",
     "Layout": "Single",
-    "CustomPivot": {
-      "HasCustomPivot": true,
-      "Coordinates": {
-        "X": 0.5,
-        "Y": 0.5,
-        "Z": 0.0
-      }
-    },
+    "CustomPivot": {"HasCustomPivot": true, "Coordinates": {"X": 0.5, "Y": 0.5, "Z": 0}},
     "CanBeAttachedToTerrainSide": true,
     "DevModeTool": false
   },
@@ -96,69 +69,30 @@
     "FlavorDescriptionLocKey": "Tobbert.SidePlatform3x1.FlavorDescription",
     "Icon": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform3x1"
   },
-  "ConstructionSiteProgressVisualizerSpec": {
-    "ProgressThresholds": [
-      0.0
-    ]
-  },
+  "ConstructionSiteProgressVisualizerSpec": {"ProgressThresholds": [0]},
   "TemplateSpec": {
     "TemplateName": "SidePlatform3x1.IronTeeth",
-    "BackwardCompatibleTemplateNames": [
-    ],
+    "BackwardCompatibleTemplateNames": [],
     "RequiredFeatureToggle": "",
     "DisablingFeatureToggle": ""
   },
   "Children": {
     "#Finished": {
-      "TimbermeshSpec": {
-        "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform3x1.IronTeeth.Model"
-      },
+      "TimbermeshSpec": {"Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform3x1.IronTeeth.Model"},
       "CollidersSpec": {
-        "BoxColliders": [
-          {
-            "Center": {
-              "X": 1.5,
-              "Y": 0.5,
-              "Z": 0.5
-            },
-            "Size": {
-              "X": 2.96,
-              "Y": 0.46,
-              "Z": 0.96
-            }
-          }
-        ],
-        "SphereColliders": [
-        ],
-        "CapsuleColliders": [
-        ]
+        "BoxColliders": [{"Center": {"X": 1.5, "Y": 0.5, "Z": 0.5}, "Size": {"X": 2.96, "Y": 0.46, "Z": 0.96}}],
+        "SphereColliders": [],
+        "CapsuleColliders": []
       }
     },
     "#Unfinished": {
       "Children": {
         "ConstructionBase": {
-          "TimbermeshSpec": {
-            "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/ConstructionSite1x1.Model"
-          },
+          "TimbermeshSpec": {"Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/ConstructionSite1x1.Model"},
           "CollidersSpec": {
-            "BoxColliders": [
-              {
-                "Center": {
-                  "X": 0.5,
-                  "Y": 0.5,
-                  "Z": 0.5
-                },
-                "Size": {
-                  "X": 0.96,
-                  "Y": 0.96,
-                  "Z": 0.96
-                }
-              }
-            ],
-            "SphereColliders": [
-            ],
-            "CapsuleColliders": [
-            ]
+            "BoxColliders": [{"Center": {"X": 0.5, "Y": 0.5, "Z": 0.5}, "Size": {"X": 0.96, "Y": 0.96, "Z": 0.96}}],
+            "SphereColliders": [],
+            "CapsuleColliders": []
           }
         },
         "ConstructionStage0": {
@@ -166,24 +100,9 @@
             "Model": "Buildings/Tobbert.MorePlatforms/SidePlatforms/SidePlatform3x1.ConstructionStage0.IronTeeth.Model"
           },
           "CollidersSpec": {
-            "BoxColliders": [
-              {
-                "Center": {
-                  "X": 1.5,
-                  "Y": 0.5,
-                  "Z": 0.5
-                },
-                "Size": {
-                  "X": 2.96,
-                  "Y": 0.46,
-                  "Z": 0.96
-                }
-              }
-            ],
-            "SphereColliders": [
-            ],
-            "CapsuleColliders": [
-            ]
+            "BoxColliders": [{"Center": {"X": 1.5, "Y": 0.5, "Z": 0.5}, "Size": {"X": 2.96, "Y": 0.46, "Z": 0.96}}],
+            "SphereColliders": [],
+            "CapsuleColliders": []
           }
         }
       }

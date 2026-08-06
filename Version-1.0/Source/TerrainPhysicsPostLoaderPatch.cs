@@ -57,9 +57,14 @@ namespace Tobbert.MorePlatforms
             foreach (Block nb in neighbor.PositionedBlocks.GetAllBlocks())
             {
               Vector3Int above = nb.Coordinates.Above();
-              int idx = instance._mapIndexService.CoordinatesToIndex3D(above);
-              instance._visited[idx] = byte.MaxValue;
-              instance.Enqueue(above, 0);
+
+              // Bounds check added to prevent IndexOutOfRangeException at the map ceiling
+              if (Sizing.SizeContains(instance._mapIndexService.TotalSize, above))
+              {
+                int idx = instance._mapIndexService.CoordinatesToIndex3D(above);
+                instance._visited[idx] = byte.MaxValue;
+                instance.Enqueue(above, 0);
+              }
             }
           }
         }

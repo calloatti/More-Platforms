@@ -1,3 +1,7 @@
+* Game Version: 1.0.0.0 - Mod Version: 3.1.4
+- Fixed an IndexOutOfRangeException crash caused by placing Side Platforms at the map's maximum build height.
+* Game Version: 1.0.0.0 - Mod Version: 3.1.3
+- Adjusted materials and science costs
 * Game Version: 1.0.0.0 - Mod Version: 3.1.2
 - Added ConstructionStage0 models to side platforms (Knatte_Anka)
 - Updated model for Side platform 4x1 (Knatte_Anka)
