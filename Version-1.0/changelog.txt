@@ -1,3 +1,5 @@
+* Game Version: 1.0.0.0 - Mod Version: 3.1.5
+- Removed reflection
 * Game Version: 1.0.0.0 - Mod Version: 3.1.4
 - Fixed an IndexOutOfRangeException crash caused by placing Side Platforms at the map's maximum build height.
 * Game Version: 1.0.0.0 - Mod Version: 3.1.3

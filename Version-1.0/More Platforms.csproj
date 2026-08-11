@@ -3,16 +3,16 @@
   <PropertyGroup>
     <AssemblyName>moreplatforms</AssemblyName>
     <RootNamespace>Tobbert.MorePlatforms</RootNamespace>
+    <TimberbornPath>C:\Program Files (x86)\Steam\steamapps\common\timberborn_main\Timberborn_Data\Managed</TimberbornPath>
   </PropertyGroup>
 
   <Import Project="CommonModSettings.props" />
 
   <ItemGroup>
-    <Publicize Remove="Timberborn.BlueprintSystem" />
-    <Publicize Include="Timberborn.BlockObjectPickingSystem" />
-    <Publicize Include="Timberborn.DeconstructionSystemUI" />
-    <Publicize Include="Timberborn.Explosions" />
-    <Publicize Include="Timberborn.TerrainPhysics" />
+    <DoNotPublicize Include="Timberborn.BlueprintSystem:Timberborn.BlueprintSystem.ComponentSpec.EqualityContract" />
+    <DoNotPublicize Include="Timberborn.BlueprintSystem:Timberborn.BlueprintSystem.ComponentSpec.PrintMembers" />
   </ItemGroup>
 
 </Project>
+
+

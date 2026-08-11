@@ -109,7 +109,7 @@ MorePlatforms\
 
 ## Current State
 
-- **Build:** Succeeds (0 errors, 0 warnings). Csproj has `<Publicize Remove="Timberborn.BlueprintSystem" />` to prevent record inheritance issues.
+- **Build:** Succeeds (0 errors, 0 warnings). Csproj publicizes `Timberborn.BlueprintSystem` (via `CommonModSettings.props`) with `DoNotPublicize` for `ComponentSpec.EqualityContract`/`PrintMembers` to prevent record-inheritance CS0507 issues (was `<Publicize Remove="Timberborn.BlueprintSystem" />` before).
 - **Runtime crash FIXED:** `Material BaseWood_Brown_Folktails.001 not found in repository` was caused by .blend materials using underscore naming (`BaseWood_Brown_Folktails`) with Blender dedup suffixes (`.001`, `.002`, etc.) instead of game's dot notation (`BaseWood_Brown.Folktails`)
 - **Fix applied:** `.scratch/fix_materials.py` renamed/merged all materials to correct game names. `export_timbermesh.py` updated to read from `Models/`. All .timbermesh re-exported and deployed.
 - **Load-time validation FIXED:** Side platforms attached to other buildings (not terrain) were being deleted on game load by `TerrainPhysicsPostLoader.RemoveBlockObjects()`. The BFS flood fill only propagates horizontally through `UnfinishedGround` blocks, not regular `BlockObject` stackable. Fixed via Harmony postfix `TerrainPhysicsPostLoaderPatch.cs` on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Required publicizing `Timberborn.TerrainPhysics`.
@@ -573,7 +573,7 @@ Finds the newest `.timber` save, closes Timberborn gracefully, then relaunches v
 1. **Material naming:** Use `Name.FactionId` dot notation (e.g., `BaseWood_Brown.Folktails`), NOT underscore. The game's `MaterialRepository.GetMaterial()` looks up by Unity `m_Name` field.
 2. **Blender dedup:** Importing Unity assets with duplicate material names creates `.001`/`.002` etc. variants — these must be merged/renamed before export.
 3. **Namespace corrections:** `ComponentSpec` is in `Timberborn.BlueprintSystem`, `TemplateModule` is in `Timberborn.TemplateInstantiation` — NOT `Timberborn.BaseComponentSystem` or `Timberborn.TemplateSystem`.
-4. **Publicizer:** `<Publicize Remove="Timberborn.BlueprintSystem" />` needed to prevent record inheritance breakage.
+4. **Publicizer:** `Timberborn.BlueprintSystem` is publicized (shared props) with `DoNotPublicize` for `ComponentSpec.EqualityContract`/`PrintMembers` to prevent record-inheritance CS0507 breakage.
 5. **NO AssetBundles:** 1.0 mod system does not use them. Category sprites go in `CategorySprites/` at mod root.
 6. **Prefab converter:** See `.meta/prefab_converter.csv` for GUID/field migration between game versions (0.6 → 1.1).
 7. **Timbermesh visualisation fix (1.1.0.2):** Material script ref must use `{fileID: 738743559, guid: 79a76570d9fab1d82517314361c9ddd8, type: 3}` not `{instanceID: 0}`.

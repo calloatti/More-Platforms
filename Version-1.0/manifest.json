@@ -1,6 +1,6 @@
-﻿{
+{
   "Name": "More Platforms",
-  "Version": "3.1.4",
+  "Version": "3.1.5",
   "Id": "Tobbert.MorePlatforms",
   "MinimumGameVersion": "1.0.0.0",
   "Description": "Adds side platforms that can be placed on cliffs and most buildings.",
