@@ -1,0 +1,23 @@
+Think that the current platforms limit your creativity? Then this mod will let you add 4 new platforms to the game which can be build to the side of any building, giving more freedom of placing buildings as anything can be below these platforms.
+
+[h2] How to use [/h2]
+All platforms can be found under the paths tab. You can place them to the side of any cliff or a stack of levees.
+
+[strike] [h3] Middle Platform [/h3]
+These platforms can be placed nearly everywhere. They can be placed against any cliff, platform, building etc. It should be noted that this makes it possible to make floating buildings and as such is not advised when you like reality and game integrity.[/strike] 
+
+[h2] Problems? [/h2]
+In case you experience problems, please click [url=https://mod.io/g/timberborn/r/troubleshooting-mod-setup] THIS LINK [/url] to go to a page containing the most frequent issues and see if yours is included. If your issue is not there, it can be the game or something changed which makes it result in a crash. If you are savvy enough, try to look for the mods that is making the game crash. If you determine that its this mod, then please message me in the modding channel of the the Timberborn discord. Or you can leave a comment below asking for help. 
+
+IMPORTANT: Make sure to provide as much information as you can about the problem. Without more information, I cannot help you. Think about the following: What mods you have installed? What version you using? What happened before the crash? Anything the could help me reproduce and find the issue to be able to fix it. I will try to fix it as soon as possible. :D
+
+[h2] Links[/h2]
+Source code 0.6: https://github.com/TobbyTheBobby/TimberbornMods
+Source code 1.0: https://github.com/calloatti/More-Platforms
+The mod is also on mod.io: https://mod.io/g/timberborn/m/moreplatforms
+
+[h2] Support[/h2]
+If you've been enjoying my mods and appreciate the effort I've put into creating them and have the means, then I'd like to invite you to support me using the donation link below. Your support will help me continue developing and maintaining these mods, as well as exploring new ideas and improvements. By making a donation, you won't get access to exclusive content or features because I believe in freely sharing my mods with the community. Instead, your contribution will be a gesture of support, allowing me to dedicate more time and resources to creating high-quality mods that enhance your gaming experience. Thank you for considering making a donation!
+
+[url=https://www.paypal.com/donate/?hosted_button_id=5NDH2VEWPEKSU] Donation Link [/url]
+[url=https://www.patreon.com/tobbert] Patreon Link [/url]

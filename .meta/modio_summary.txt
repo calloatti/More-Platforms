@@ -1,0 +1,1 @@
+Adds side platforms that can be placed on cliffs and most buildings.
