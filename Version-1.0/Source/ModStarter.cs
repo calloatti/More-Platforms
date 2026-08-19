@@ -9,8 +9,7 @@ namespace Tobbert.MorePlatforms
     public void StartMod(IModEnvironment modEnvironment)
     {
 
-      var harmony = new Harmony("tobbert.moreplatforms");
-      harmony.PatchAll();
+new Harmony("Tobbert.MorePlatforms").PatchAll();
       Debug.Log("[MorePlatforms] Harmony patching complete.");
     }
   }

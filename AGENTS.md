@@ -27,7 +27,6 @@ Version-1.0/
 ├── CommonModSettings.props
 ├── More Platforms.csproj
 ├── manifest.json
-├── export_timbermesh.py       ← Blender batch export script
 ├── Source/
 │   ├── ModStarter.cs              ← IModStarter entry point + Harmony patches
 │   ├── Configurator.cs            ← TemplateModule.AddDecorator registrations
@@ -111,7 +110,7 @@ MorePlatforms\
 
 - **Build:** Succeeds (0 errors, 0 warnings). Csproj publicizes `Timberborn.BlueprintSystem` (via `CommonModSettings.props`) with `DoNotPublicize` for `ComponentSpec.EqualityContract`/`PrintMembers` to prevent record-inheritance CS0507 issues (was `<Publicize Remove="Timberborn.BlueprintSystem" />` before).
 - **Runtime crash FIXED:** `Material BaseWood_Brown_Folktails.001 not found in repository` was caused by .blend materials using underscore naming (`BaseWood_Brown_Folktails`) with Blender dedup suffixes (`.001`, `.002`, etc.) instead of game's dot notation (`BaseWood_Brown.Folktails`)
-- **Fix applied:** `.scratch/fix_materials.py` renamed/merged all materials to correct game names. `export_timbermesh.py` updated to read from `Models/`. All .timbermesh re-exported and deployed.
+- **Fix applied (tools now gone, re-verify before reusing):** the old `.scratch/fix_materials.py` renamed/merged all materials to correct game names; `export_timbermesh.py` (in `Version-1.0\`) was the batch exporter. Both are deleted as of 2026-08-17. Use the `timberborn-meshes` skill instead: `fix-up-blend.py` (blend prep) + `export_timbermesh.py` (headless export) + `verify-timbermesh.ps1` (post-export validation).
 - **Load-time validation FIXED:** Side platforms attached to other buildings (not terrain) were being deleted on game load by `TerrainPhysicsPostLoader.RemoveBlockObjects()`. The BFS flood fill only propagates horizontally through `UnfinishedGround` blocks, not regular `BlockObject` stackable. Fixed via Harmony postfix `TerrainPhysicsPostLoaderPatch.cs` on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Required publicizing `Timberborn.TerrainPhysics`.
 - **ConstructionSite1x1 model REBUILT:** Imported vanilla `ConstructionBase1x1.Model.timbermesh` from ripped assets via `timbermesh_plugin_2026-07-15.py`, deleted Dirt mesh (kept BeaverCarryingModels wood frame), rotated -90° around Y (horizontal → vertical in YZ plane, faces -X), origin at Blender location `(0, 0, 1)`. Game-space bounds: X[0, 0.322] Y[0, 1] Z[0, 1] — narrow scaffold at cliff-facing edge.
 
@@ -387,27 +386,18 @@ Critical: Use `Name.FactionId` dot notation (e.g., `BaseWood_Brown.Folktails`), 
 
 ## Export Process
 
-`export_timbermesh.py` reads from `Models/` (working copies). Uses `timbermesh_exporter.ExportSettings(merge_meshes=True, single_animation=True, use_vertex_animations=False)`. Exports all collections per faction.
+The headless batch exporter is now the `timberborn-meshes` skill's
+`export_timbermesh.py` (the old `export_timbermesh.py` in `Version-1.0\` and
+`export_all.py` are deleted). It reads `.blend` files from a given models dir
+and writes `<Collection>.Model.timbermesh` to an explicit output dir. Uses
+`timbermesh_exporter.ExportSettings(merge_meshes=True, single_animation=True, use_vertex_animations=False)` — exports every mesh-bearing collection per blend.
 
 **Official timbermesh Blender plugin:** https://github.com/mechanistry/timbermesh (MIT, v1.2.0+)
 
 **Headless batch export workflow:**
-```python
-# export_all.py — run with: blender --background model.blend --python export_all.py
-import bpy, sys, os
-sys.path.append("path/to/timbermesh_blender_plugin")
-from timbermesh_blender_plugin import timbermesh_exporter
-
-input_dir = "Models/"
-output_dir = "AssetBundles/"
-
-for fname in os.listdir(input_dir):
-    if fname.endswith(".blend"):
-        bpy.ops.wm.open_mainfile(filepath=os.path.join(input_dir, fname))
-        settings = timbermesh_exporter.ExportSettings(bpy.context, True, True, False)
-        for collection in bpy.data.collections:
-            out_path = os.path.join(output_dir, collection.name + ".Model.timbermesh")
-            timbermesh_exporter.Exporter.export_collection(collection, out_path, settings)
+```powershell
+# export_timbermesh.py — run with: blender --background --factory-startup --python export_timbermesh.py -- <models_dir> <out_dir>
+& "C:\Users\calloatti\source\repos\Tools\blender-4.2.22-windows-x64\blender.exe" --background --factory-startup --python "<skill>\export_timbermesh.py" -- "Version-1.0\Models" "Version-1.0\exported"
 ```
 
 **Existing local tools** at `C:\Users\calloatti\source\repos\Tools\timbermesh\`:
@@ -578,11 +568,11 @@ Finds the newest `.timber` save, closes Timberborn gracefully, then relaunches v
 6. **Prefab converter:** See `.meta/prefab_converter.csv` for GUID/field migration between game versions (0.6 → 1.1).
 7. **Timbermesh visualisation fix (1.1.0.2):** Material script ref must use `{fileID: 738743559, guid: 79a76570d9fab1d82517314361c9ddd8, type: 3}` not `{instanceID: 0}`.
 8. **Bug in FindAllBodyParts (MorePlatformsCore.cs):** It calls `FindBodyPart` (singular) recursively instead of calling itself. Fix if reactivated.
-9. **Moving origin in Blender — DO NOT counter-translate vertices:** The timbermesh exporter bakes `obj.matrix_world` into vertex positions. To shift a model's world-space position (which is the goal of an origin fix), you ONLY need to change `obj.location`. Counter-translating vertices (shifting them opposite to the location change) preserves the original world positions, which undoes the fix. The correct approach is `obj.location += OFFSET` with NO vertex modification — the exporter then produces vertices at `original_world + OFFSET`, which is the desired correction. The working script is `.scratch/fix_location_only.py`.
+9. **Moving origin in Blender — DO NOT counter-translate vertices:** The timbermesh exporter bakes `obj.matrix_world` into vertex positions. To shift a model's world-space position (which is the goal of an origin fix), you ONLY need to change `obj.location`. Counter-translating vertices (shifting them opposite to the location change) preserves the original world positions, which undoes the fix. The correct approach is `obj.location += OFFSET` with NO vertex modification — the exporter then produces vertices at `original_world + OFFSET`, which is the desired correction. (The old working script `.scratch/fix_location_only.py` is deleted — apply the location-only rule manually or via a new script.)
 10. **Blender 4.2 vertex persistence bug:** Direct vertex modifications (`v.co -= offset`, `mesh.vertices.foreach_set()`) fail to persist on save for meshes with coordinate ranges beyond ±100 units. The in-memory changes are correct, but `bpy.ops.wm.save_as_mainfile()` silently drops them. Location changes always persist. If you MUST modify vertex coordinates for such meshes, use `bpy.ops.object.origin_set()` (which uses Blender's internal C++ machinery) or work in world-space export rather than counter-translation.
-11. **HorizontalPlatformEnd origin offset:** The correct origin translation for End platform files (2x1–5x1) relative to the original source `.blend` files is **(1, 0, 1)** — 1 block right in X, 1 block up in Z. Only modify these 4 files; the 1x1 is already correct. Always start from fresh copies of the original source, apply material fixes first, then move the origin (location only, no vertex counter-translation). Working script: `.scratch/fix_location_only.py`.
-12. **Timbermesh export order:** Always apply material fixes to ALL `.blend` files before running `export_timbermesh.py`. Exporting all stems from unfixed blends will produce `.timbermesh` files with wrong material names (underscore instead of dot notation), which crash at runtime with "not found in repository" errors.
-13. **`export_timbermesh.py` caveat:** The script exports ALL collections in a blend to the same output path per stem+faction — if a blend has multiple collections, the last one overwrites the rest. Each blend should have exactly one collection for this to work correctly. When only specific files were modified, run a targeted export (see `.scratch/export_end_only.py`) instead of the full export to avoid overwriting working timbermeshes.
+11. **HorizontalPlatformEnd origin offset:** The correct origin translation for End platform files (2x1–5x1) relative to the original source `.blend` files is **(1, 0, 1)** — 1 block right in X, 1 block up in Z. Only modify these 4 files; the 1x1 is already correct. Always start from fresh copies of the original source, apply material fixes first, then move the origin (location only, no vertex counter-translation). (Old script `.scratch/fix_location_only.py` deleted.)
+12. **Timbermesh export order:** Always apply material fixes to ALL `.blend` files before running the skill's `export_timbermesh.py`. Exporting all stems from unfixed blends will produce `.timbermesh` files with wrong material names (underscore instead of dot notation), which crash at runtime with "not found in repository" errors. Run `fix-up-blend.py` on the working copies first, then `verify-timbermesh.ps1` on the outputs.
+13. **`export_timbermesh.py` caveat (skill version):** The skill's exporter writes ONE file per collection (`<Collection>.Model.timbermesh`) to the output dir. If a blend has multiple mesh-bearing collections, each gets its own file — but the game expects the model named after the building, so a blend should still have exactly one collection. Run a targeted export (single blend copied to a temp dir) when only specific files changed, to avoid re-exporting everything.
 14. **TerrainPhysicsPostLoader flood fill limitation:** The BFS only propagates horizontally through `UnfinishedGround` blocks and terrain cells. Regular `BlockObject` stackable blocks only propagate **upward**, never sideways. This means side platforms attached to buildings (not terrain) are never reached by the flood fill and get deleted on load. Fix: Harmony postfix on `ValidateBlockObjects` that scans each validated building's neighbors for attached side platforms and adds them to `_validBlockObjects`. Requires `Timberborn.TerrainPhysics` publicized.
 15. **ConstructionSite1x1 rebuild process:** Import vanilla `ConstructionBase1x1.Model.timbermesh` via `timbermesh_plugin_2026-07-15.py` (which applies Unity→Blender coordinate transform). Delete Dirt mesh, keep `BeaverCarryingModels` wood frame. Rotate -90° around Y (horizontal→vertical in YZ plane, faces -X). Set origin via `obj.location = (0, 0, 1)`. Use `frame.data.transform(rot)` for rotation + `frame.location` for positioning — never counter-translate vertices. The timbermesh exporter bakes `matrix_world`.
 16. **Blender ↔ Game coordinate mapping:** The import plugin converts Unity→Blender via `(bx, by, bz) = (-ux, -uz, uy)`. The timbermesh exporter does the reverse: `(ux, uy, uz) = (-bx, bz, -by)`. To position a model in game-space `[tx, ty, tz] + local`, compute the required Blender location by solving the export transform.
@@ -639,3 +629,8 @@ All 14 locale files have identical keys with translated text. Keep all 14.
 - [ ] Localizations display correctly
 - [ ] DirectionalConnector model switching works (if included)
 - [ ] Save/load works (blueprint system handles this natively — verify no custom save data needed)
+
+## Hard Rule
+DO NOT EVER TOUCH THE DEPLOY FOLDER.
+
+BUILD DOES EVERYTHING, NEVER EVER MESS WITH THE DEPLOY PROCESS.

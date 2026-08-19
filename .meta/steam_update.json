@@ -1,10 +1,10 @@
 {
   "ItemId": "3341374073",
-  "DepsFile": "C:/Users/calloatti/source/repos/Mods/More Platforms/.meta/steam_deps.txt",
   "ContentFolder": "C:/Users/calloatti/Documents/Timberborn/Mods/More Platforms",
-  "PreviewFile": "C:/Users/calloatti/Documents/Timberborn/Mods/More Platforms/thumbnail.jpg",
-  "DescriptionFile": "C:/Users/calloatti/source/repos/Mods/More Platforms/.meta/steam_description.txt",
-  "Title": "More Platforms",
   "Visibility": "public",
-  "TagsFile": "C:/Users/calloatti/source/repos/Mods/More Platforms/.meta/steam_tags.txt"
+  "DepsFile": "C:/Users/calloatti/source/repos/Mods/More Platforms/.meta/steam_deps.txt",
+  "DescriptionFile": "C:/Users/calloatti/source/repos/Mods/More Platforms/.meta/steam_description.txt",
+  "TagsFile": "C:/Users/calloatti/source/repos/Mods/More Platforms/.meta/steam_tags.txt",
+  "Title": "More Platforms",
+  "PreviewFile": "C:/Users/calloatti/Documents/Timberborn/Mods/More Platforms/thumbnail.jpg"
 }
