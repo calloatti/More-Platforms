@@ -1,2 +1,2 @@
-* Game Version: 1.0.0.0 - Mod Version: 3.1.5
-- Removed reflection
+* Game Version: 1.0.0.0 - Mod Version: 3.2.0
+- Add Reinforced Posts and Reinforced Cross Braced Posts
