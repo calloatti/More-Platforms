@@ -1,2 +1,4 @@
-* Game Version: 1.0.0.0 - Mod Version: 3.2.0
-- Add Reinforced Posts and Reinforced Cross Braced Posts
+* Game Version: 1.1.2.4 - Mod Version: 3.2.1
+- Updated due to 1.1.2.4 release
+* Game Version: 1.0.13.1 - Mod Version: 3.2.1
+- Updated due to 1.1.2.4 release
